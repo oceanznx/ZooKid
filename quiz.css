@@ -19,6 +19,16 @@
     font-weight: 700;
 }
 
+/* Novo container para os botões de controle (Som e Próxima Pergunta) */
+.controls-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Espaço entre os botões */
+    margin-top: 1rem;
+    width: 100%; /* Ocupa a largura total para centralizar melhor */
+}
+
+/* Estilo do Botão Tocar Som (amarelo) */
 .sound-button {
     background-color: #f3cb2b;
     color: #0d0d0d;
@@ -35,6 +45,23 @@
     background-color: #eab700;
 }
 
+/* NOVO ESTILO: Botão Próxima Pergunta (verde) */
+.next-button {
+    background-color: #28a745; /* Verde para avançar */
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    font-weight: 900;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #1e7e34;
+}
+
 .options-container {
     display: flex;
     justify-content: center;
@@ -44,7 +71,7 @@
 }
 
 .animal-option {
-    background-color: rgba(255, 255, 255, 0.9);
+    background-color: rgba(0, 0, 0, 0.9);
     padding: 1rem;
     border-radius: 30px;
     cursor: pointer;
@@ -52,12 +79,13 @@
     text-align: center;
 }
 
-.animal-option img {
-    max-width: 150px; 
-    height: auto;
-    border: #94cbfa 4px solid;
-    border-radius: 50px;
+.animal-option img{
+    max-width: 250px; 
+    max-height: auto;
+    border-radius: 30px;
+    border: 2px solid #f3cb2b;
 }
+
 
 .animal-option:hover {
     transform: scale(1.05);
@@ -75,35 +103,19 @@
     box-shadow: 0 0 20px #dc3545;
 }
 
-.category-select {
-    padding: 0.7rem 1.5rem;
-    border-radius: 10px;
-    font-size: 1.2rem;
-    border: 2px solid #f3cb2b;
-    background-color: #eee3b9;
-    color: #0d0d0d;
-    cursor: pointer;
-}
-
-/* NOVO ESTILO: Mensagem de Feedback no Banner */
+/* Estilos para o banner de Feedback (acerto/erro) */
 .feedback-message {
-    min-height: 2.5rem; /* Garante que a div não suma completamente quando vazia */
-    margin-top: 1rem;
     font-size: 2.5rem;
     font-weight: 900;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    transition: color 0.3s ease, opacity 0.5s ease;
-    opacity: 0; /* Começa invisível */
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 40px; /* Para evitar que o layout "salte" */
 }
 
-.feedback-message.correct-color {
-    color: #4CAF50; /* Verde forte */
-    opacity: 1;
+.correct-color {
+    color: #28a745; /* Verde */
 }
 
-.feedback-message.incorrect-color {
-    color: #F44336; /* Vermelho forte */
-    opacity: 1;
+.incorrect-color {
+    color: #dc3545; /* Vermelho */
 }
-
-

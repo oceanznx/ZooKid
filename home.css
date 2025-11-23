@@ -54,7 +54,6 @@ main {
     text-align: center;
     padding: 2rem 4rem;
     min-height: calc(90vh - 10rem);
-   
     color: #ffffff;
 }
 
@@ -123,7 +122,7 @@ h3 {
     border-radius: 30px;
 }
 
-img {
+.games-pictures {
     border-radius: 50px;
     border: #eab700 4px solid;
     max-width: 250px;

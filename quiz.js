@@ -1,43 +1,65 @@
-// quiz.js
+// quiz.js - Versão com Botão "Próxima Pergunta" e Sem Categoria
 
 // 1. ESTRUTURA DE DADOS: MAPA DE ANIMAIS E CATEGORIAS
-// Adicione o nome do animal, o nome da imagem (que você deve ter) e o arquivo de som.
 const ANIMALS = [
-    // Animais da Fazenda (Farm)
+    // 1. ANIMAIS DA FAZENDA (FARM) - 6 Animais
     { name: 'Vaca', sound: 'cow.mp3', image: 'cow-sim.jpg', category: 'farm', correctName: 'Vaca' },
     { name: 'Galinha', sound: 'chicken.mp3', image: 'chicken-sim.jpg', category: 'farm', correctName: 'Galinha' },
-    { name: 'Porco', sound: 'pig.mp3', image: 'pig-sim.jpg', category: 'farm', correctName: 'Porco' },
+    { name: 'Porco', sound: 'pig.mp3', image: 'pig-sim.jpg', category: 'Porco', correctName: 'Porco' },
+    { name: 'Ovelha', sound: 'sheep.mp3', image: 'sheep-sim.jpg', category: 'farm', correctName: 'Ovelha' },
+    { name: 'Pato', sound: 'duck.mp3', image: 'duck-sim.jpg', category: 'farm', correctName: 'Pato' },
+    { name: 'Cavalo', sound: 'horse.mp3', image: 'horse-sim.jpg', category: 'farm', correctName: 'Cavalo' },
     
-    // Animais Domésticos (Domestic)
+    // 2. ANIMAIS DOMÉSTICOS (DOMESTIC) - 6 Animais
     { name: 'Cachorro', sound: 'dog.mp3', image: 'dog-sim.jpg', category: 'domestic', correctName: 'Cachorro' },
     { name: 'Gato', sound: 'cat.mp3', image: 'cat-sim.jpg', category: 'domestic', correctName: 'Gato' },
+    { name: 'Coelho', sound: 'rabbit.mp3', image: 'rabbit-sim.jpg', category: 'domestic', correctName: 'Coelho' },
+    { name: 'Papagaio', sound: 'parrot.mp3', image: 'parrot-sim.jpg', category: 'domestic', correctName: 'Papagaio' },
+    { name: 'Canário', sound: 'canary.mp3', image: 'canary-sim.jpg', category: 'domestic', correctName: 'Canário' },
+    { name: 'Peixe', sound: 'bubble.mp3', image: 'fish-sim.jpg', category: 'domestic', correctName: 'Peixe (Aquário)' }, 
     
-    // Animais da Selva (Jungle)
+    // 3. ANIMAIS DA SELVA (JUNGLE) - 6 Animais
     { name: 'Macaco', sound: 'monkey.mp3', image: 'monkey-sim.jpg', category: 'jungle', correctName: 'Macaco' },
-    { name: 'Tucano', sound: 'tucan.mp3', image: 'tucan-sim.jpg', category: 'jungle', correctName: 'Tucano' },
+    { name: 'Bem Te Vi', sound: 'tucan.mp3', image: 'tucan-sim.jpg', category: 'jungle', correctName: 'Bem Te Vi' },
+    { name: 'Jaguar', sound: 'jaguar.mp3', image: 'jaguar-sim.jpg', category: 'jungle', correctName: 'Jaguar' },
+    { name: 'Cobra', sound: 'snake.mp3', image: 'snake-sim.jpg', category: 'jungle', correctName: 'Cobra' },
+    { name: 'Gorila', sound: 'gorilla.mp3', image: 'gorilla-sim.jpg', category: 'jungle', correctName: 'Gorila' },
+    { name: 'Arara', sound: 'macaw.mp3', image: 'macaw-sim.jpg', category: 'jungle', correctName: 'Arara' },
     
-    // Animais da Savana (Savanna)
+    // 4. ANIMAIS DA SAVANA (SAVANNA) - 6 Animais
     { name: 'Leão', sound: 'lion.mp3', image: 'lion-sim.jpg', category: 'savanna', correctName: 'Leão' },
     { name: 'Elefante', sound: 'elephant.mp3', image: 'elephant-sim.jpg', category: 'savanna', correctName: 'Elefante' },
+    { name: 'Girafa', sound: 'giraffe.mp3', image: 'giraffe-sim.jpg', category: 'savanna', correctName: 'Girafa' },
+    { name: 'Zebra', sound: 'zebra.mp3', image: 'zebra-sim.jpg', category: 'savanna', correctName: 'Zebra' },
+    { name: 'Rinoceronte', sound: 'rhino.mp3', image: 'rhino-sim.jpg', category: 'savanna', correctName: 'Rinoceronte' },
+    { name: 'Hiena', sound: 'hyena.mp3', image: 'hyena-sim.jpg', category: 'savanna', correctName: 'Hiena' },
     
-    // Animais do Oceano (Ocean)
+    // 5. ANIMAIS DO OCEANO (OCEAN) - 6 Animais
     { name: 'Baleia', sound: 'whale.mp3', image: 'whale-sim.jpg', category: 'ocean', correctName: 'Baleia' },
     { name: 'Golfinho', sound: 'dolphin.mp3', image: 'dolphin-sim.jpg', category: 'ocean', correctName: 'Golfinho' },
+    { name: 'Foca', sound: 'seal.mp3', image: 'seal-sim.jpg', category: 'ocean', correctName: 'Foca' },
+    { name: 'Pinguim', sound: 'penguin.mp3', image: 'penguin-sim.jpg', category: 'ocean', correctName: 'Pinguim' },
+    { name: 'Morsa', sound: 'walrus.mp3', image: 'walrus-sim.jpg', category: 'ocean', correctName: 'Morsa' },
+    { name: 'Gaivota', sound: 'seagull.mp3', image: 'seagull.jpg', category: 'ocean', correctName: 'Gaivota' },
 ];
 
 // 2. VARIÁVEIS DE ESTADO DO JOGO
 let score = 0;
 let correctCount = 0;
 let currentCorrectAnimal = null;
-let currentCategory = 'all';
+let currentCategory = 'all'; // Mantém 'all' como padrão
+let currentAudio = null; 
 
 // 3. SELETORES DO DOM
 const scoreElement = document.getElementById('score');
 const correctCountElement = document.getElementById('correct-count');
 const playSoundBtn = document.getElementById('play-sound-btn');
 const optionsContainer = document.getElementById('options-container');
-const categorySelect = document.getElementById('category-select');
-const feedbackMessage = document.getElementById('feedback-message'); // NOVO SELETOR!
+const feedbackMessage = document.getElementById('feedback-message'); 
+
+// NOVO SELETOR: Botão Próxima Pergunta
+const nextQuestionBtn = document.getElementById('next-question-btn');
+
 
 // 4. FUNÇÕES DO JOGO
 
@@ -66,48 +88,59 @@ function displayFeedback(message, isCorrect) {
 }
 
 /**
- * Seleciona um novo animal para ser a resposta correta e as opções de distração.
+ * Para o áudio que estiver tocando e reseta o botão.
+ */
+function stopAudio() {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0; // Volta para o início
+        playSoundBtn.textContent = '👂 Tocar o Som Novamente';
+        playSoundBtn.disabled = false;
+    }
+}
+
+/**
+ * Configura o estado do jogo para começar uma nova pergunta.
  */
 function selectNewQuestion() {
-    // Filtra animais pela categoria selecionada
+    // 1. Esconde o botão Próxima Pergunta e reabilita o botão Som
+    nextQuestionBtn.style.display = 'none';
+    playSoundBtn.disabled = false;
+
+    // 2. Limpa o feedback
+    feedbackMessage.textContent = '';
+    feedbackMessage.classList.remove('correct-color', 'incorrect-color');
+
+    // 3. Define os animais disponíveis (atualmente todos, pois não há filtro)
     const availableAnimals = currentCategory === 'all'
         ? ANIMALS
         : ANIMALS.filter(animal => animal.category === currentCategory);
 
     if (availableAnimals.length < 3) {
-        // Exibe um erro amigável se a categoria não tiver animais suficientes
         displayFeedback("Ops! Adicione mais animais a esta categoria para jogar.", false);
         optionsContainer.innerHTML = '';
         return;
     }
     
-    // Embaralha e pega 3 animais (1 correto + 2 distratores)
+    // 4. Lógica de seleção (1 correto + 2 distratores)
     const shuffledAnimals = availableAnimals.sort(() => 0.5 - Math.random());
-    
-    // O primeiro animal embaralhado é o correto
     currentCorrectAnimal = shuffledAnimals[0];
     
     let options = [currentCorrectAnimal];
     let i = 1;
     
-    // Garante que as 3 opções são diferentes
     while (options.length < 3 && i < shuffledAnimals.length) {
         const potentialDistractor = shuffledAnimals[i];
         
-        // Adiciona se ainda não estiver nas opções
         if (!options.some(opt => opt.name === potentialDistractor.name)) {
             options.push(potentialDistractor);
         }
         i++;
     }
     
-    // Embaralha as 3 opções para que a resposta correta não seja sempre a primeira
     options = options.sort(() => 0.5 - Math.random());
 
     renderOptions(options);
-    
-    // Toca o som automaticamente ao iniciar a nova pergunta
-    playSound(); 
 }
 
 /**
@@ -115,8 +148,13 @@ function selectNewQuestion() {
  * @param {Array} options - Array de 3 objetos de animais.
  */
 function renderOptions(options) {
-    optionsContainer.innerHTML = ''; // Limpa as opções antigas
+    optionsContainer.innerHTML = ''; 
     
+    // Reabilita os cliques em todas as opções (para o caso de um erro anterior)
+    Array.from(optionsContainer.children).forEach(option => {
+         option.style.pointerEvents = 'auto'; 
+    });
+
     options.forEach(animal => {
         const optionDiv = document.createElement('div');
         optionDiv.classList.add('animal-option');
@@ -127,12 +165,10 @@ function renderOptions(options) {
             <p>${animal.correctName}</p>
         `;
         
-        // Adiciona o evento de clique para verificar a resposta
         optionDiv.addEventListener('click', (event) => {
-             // Previna o evento de propagar para evitar cliques múltiplos em navegadores antigos
             event.stopPropagation(); 
             checkAnswer(animal.name, optionDiv);
-        }, { once: true }); // O { once: true } garante que o clique só pode ser feito uma vez por pergunta
+        }, { once: true });
         
         optionsContainer.appendChild(optionDiv);
     });
@@ -140,24 +176,41 @@ function renderOptions(options) {
 
 
 /**
- * Toca o arquivo de som do animal correto.
+ * Toca o arquivo de som do animal correto, com tratamento de erro.
  */
 function playSound() {
-    if (!currentCorrectAnimal) return;
+    if (!currentCorrectAnimal || !currentCorrectAnimal.sound) return;
 
-    // Cria um novo elemento Audio
-    const audio = new Audio(currentCorrectAnimal.sound);
-    audio.play();
+    stopAudio(); // Para qualquer áudio anterior antes de iniciar um novo
+    
+    const audioFilePath = currentCorrectAnimal.sound; 
+    const audio = new Audio(audioFilePath);
+    currentAudio = audio; // Define o objeto Audio atual para a variável global
 
     // Feedback visual/tátil no botão
     playSoundBtn.textContent = '🔊 Tocando...';
     playSoundBtn.disabled = true;
 
-    // Habilita o botão novamente após o som terminar
-    audio.onended = () => {
-        playSoundBtn.textContent = '👂 Tocar o Som Novamente';
+    // Tenta tocar o áudio usando Promise e tratamento de erro
+    try {
+        audio.play().then(() => {
+            console.log(`Áudio ${audioFilePath} iniciado com sucesso.`);
+        }).catch(error => {
+            console.error(`Erro ao tentar tocar o áudio ${audioFilePath}. Verifique o caminho.`, error);
+            playSoundBtn.textContent = '❌ Erro no Áudio! Tente novamente.';
+        });
+
+        // Habilita o botão novamente após o som terminar
+        audio.onended = () => {
+            playSoundBtn.textContent = '👂 Tocar o Som Novamente';
+            playSoundBtn.disabled = false;
+        };
+
+    } catch (e) {
+        console.error("Erro fatal ao criar ou iniciar o objeto Audio:", e);
+        playSoundBtn.textContent = '❌ Erro no Áudio! Tente novamente.';
         playSoundBtn.disabled = false;
-    };
+    }
 }
 
 
@@ -167,7 +220,10 @@ function playSound() {
  * @param {HTMLElement} clickedElement - O div do animal clicado.
  */
 function checkAnswer(selectedAnimalName, clickedElement) {
-    // Desabilita os cliques em todas as opções (necessário se não usar { once: true } no event listener)
+    // 1. Para o áudio imediatamente ao receber a resposta
+    stopAudio(); 
+
+    // 2. Desabilita os cliques em todas as opções
     Array.from(optionsContainer.children).forEach(option => {
         option.style.pointerEvents = 'none';
     });
@@ -184,7 +240,7 @@ function checkAnswer(selectedAnimalName, clickedElement) {
         isAnswerCorrect = true;
     } else {
         // Resposta Incorreta
-        score = Math.max(0, score - 5); // Penaliza, mas não deixa ir abaixo de zero
+        score = Math.max(0, score - 5); 
         clickedElement.classList.add('incorrect');
         
         // Destaca a resposta correta
@@ -197,21 +253,18 @@ function checkAnswer(selectedAnimalName, clickedElement) {
     }
 
     updateScore();
-    displayFeedback(message, isAnswerCorrect); // EXIBE A MENSAGEM NO BANNER
+    displayFeedback(message, isAnswerCorrect); 
     
-    // Prepara a próxima pergunta após um breve atraso
+    // 3. Mostra o botão Próxima Pergunta
+    nextQuestionBtn.style.display = 'inline-block';
+    playSoundBtn.disabled = true; // Desabilita o som enquanto o resultado é mostrado
+    
+    // 4. Remove o feedback visual após 3 segundos, mas mantendo os botões visíveis para a próxima jogada.
     setTimeout(() => {
-        // Remove as classes de feedback e limpa o estado
         Array.from(optionsContainer.children).forEach(option => {
             option.classList.remove('correct', 'incorrect');
-            option.style.pointerEvents = 'auto'; // Reabilita os cliques
         });
         
-        // Limpa a mensagem de feedback e a torna invisível
-        feedbackMessage.textContent = '';
-        feedbackMessage.classList.remove('correct-color', 'incorrect-color');
-        
-        selectNewQuestion();
     }, 3000);
 }
 
@@ -225,19 +278,8 @@ function initGame() {
     // Evento do botão Tocar Som
     playSoundBtn.addEventListener('click', playSound);
 
-    // Evento de mudança de categoria
-    categorySelect.addEventListener('change', (event) => {
-        currentCategory = event.target.value;
-        score = 0; // Zera o placar ao mudar a categoria
-        correctCount = 0;
-        updateScore();
-        
-        // Limpa feedback anterior e inicia novo jogo
-        feedbackMessage.textContent = '';
-        feedbackMessage.classList.remove('correct-color', 'incorrect-color');
-        
-        selectNewQuestion(); 
-    });
+    // NOVO EVENTO: Botão Próxima Pergunta
+    nextQuestionBtn.addEventListener('click', selectNewQuestion);
 
     // Inicia a primeira pergunta
     selectNewQuestion(); 
