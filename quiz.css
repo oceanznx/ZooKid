@@ -1,0 +1,109 @@
+/* quiz.css */
+
+/* Estilos específicos para a página do Quiz */
+.quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.score-board {
+    background-color: #f8e9ac;
+    color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.sound-button {
+    background-color: #f3cb2b;
+    color: #0d0d0d;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    font-weight: 900;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.sound-button:hover {
+    background-color: #eab700;
+}
+
+.options-container {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    color: #eab700;
+}
+
+.animal-option {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 1rem;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-align: center;
+}
+
+.animal-option img {
+    max-width: 150px; 
+    height: auto;
+    border: #94cbfa 4px solid;
+    border-radius: 50px;
+}
+
+.animal-option:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
+}
+
+/* Feedback de Resposta */
+.animal-option.correct {
+    border: 5px solid #28a745; /* Verde para resposta correta */
+    box-shadow: 0 0 20px #28a745;
+}
+
+.animal-option.incorrect {
+    border: 5px solid #dc3545; /* Vermelho para resposta incorreta */
+    box-shadow: 0 0 20px #dc3545;
+}
+
+.category-select {
+    padding: 0.7rem 1.5rem;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    border: 2px solid #f3cb2b;
+    background-color: #eee3b9;
+    color: #0d0d0d;
+    cursor: pointer;
+}
+
+/* NOVO ESTILO: Mensagem de Feedback no Banner */
+.feedback-message {
+    min-height: 2.5rem; /* Garante que a div não suma completamente quando vazia */
+    margin-top: 1rem;
+    font-size: 2.5rem;
+    font-weight: 900;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease, opacity 0.5s ease;
+    opacity: 0; /* Começa invisível */
+}
+
+.feedback-message.correct-color {
+    color: #4CAF50; /* Verde forte */
+    opacity: 1;
+}
+
+.feedback-message.incorrect-color {
+    color: #F44336; /* Vermelho forte */
+    opacity: 1;
+}
+
+

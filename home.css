@@ -1,0 +1,131 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Gugi&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Stack+Sans+Headline:wght@200..700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+body{
+    background-color: #88c2f5 ;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('sim.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 4rem;
+    color: white;
+    background-color: #eee3b9;
+}
+
+nav a {
+    margin-left: 2rem;
+    text-decoration: none;
+    color: #f3cb2b;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    text-shadow: #000000 1px 1px 2px;
+}
+
+nav a:hover {
+    color: #8f8ff8;
+}
+
+span {
+    font-family: 'Gugi', cursive;
+    color: #f3cb2b;
+}
+
+.title {
+    font-family: 'Gugi', cursive;
+    font-size: 3rem;
+    text-shadow: 2px 2px 4px rgb(110, 110, 110);
+}
+
+main {
+    text-align: center;
+    padding: 2rem 4rem;
+    min-height: calc(90vh - 10rem);
+    margin-top: 7rem;
+    color: #ffffff;
+}
+
+h2 {
+    font-weight: 900;
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+.zoo {
+    color: #ffffff;
+    text-shadow: gray 2px 2px 4px;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+.games {
+    margin-top: 4rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.game-card {
+max-width: 400px;
+ padding: 0 2rem;
+}
+
+.play-button {
+    transition: background-color 0.5s ease, color 0.3s ease;
+    text-decoration: none;
+    color: yellow;
+    font-size: 1.3rem;
+    font-weight: 600;
+    background-color: #94cbfa;
+    padding: 0.6rem 1.5rem;
+    border-radius: 60px;
+}
+
+.btn {
+   margin-top: 1.4rem;
+}
+
+.play-button:hover {
+    background-color: #f2e9c3;
+    color: #128cf6;
+}
+
+.desc{
+    margin-top: 1rem;
+    font-size: 1.1rem;
+}
+
+
+h3 {
+    color: #f8e9ac;
+    font-size: 1.52rem;
+    font-weight: bold;
+} 
+
+.banner {
+    background-color: rgba(0, 0, 0, 0.4);
+    padding: 2rem;
+    border-radius: 30px;
+}
+
+img {
+    border-radius: 50px;
+    border: #eab700 4px solid;
+    max-width: 250px;
+    height: auto;
+}

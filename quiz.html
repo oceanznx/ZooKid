@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooKid - Quiz Animais</title>
+    
+    <link rel="stylesheet" href="home.css">
+    
+    <link rel="stylesheet" href="quiz.css">
+</head>
+<body>
+    <header>
+        <h1 class="title">ZOO<span>KID</span></h1>
+
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="">GithubK</a>
+            <a href="">Contato</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <h2>QUIZ DOS SONS ANIMAIS</h2>
+            <p>Descubra qual animal fez esse som!</p>
+            
+            <h3 id="feedback-message" class="feedback-message"></h3>
+            
+            <div class="quiz-container">
+                <div class="score-board">
+                    Pontuação: <span id="score">0</span> | Acertos: <span id="correct-count">0</span>
+                </div>
+
+                <select id="category-select" class="category-select">
+                    <option value="all">Todas as Categorias</option>
+                    <option value="ocean">Animais do Oceano 🌊</option>
+                    <option value="savanna">Animais da Savana 🦁</option>
+                    <option value="domestic">Animais Domésticos 🏠</option>
+                    <option value="farm">Animais da Fazenda 🐔</option>
+                    <option value="jungle">Animais da Selva 🐒</option>
+                </select>
+
+                <button id="play-sound-btn" class="sound-button">
+                    🔊 Tocar o Som
+                </button>
+
+                <div class="options-container" id="options-container">
+                    
+                    <div class="animal-option" data-animal="waiting">
+                        <img src="placeholder-1.jpg" alt="Animal 1">
+                        <p>Animal 1</p>
+                    </div>
+
+                    <div class="animal-option" data-animal="waiting">
+                        <img src="placeholder-2.jpg" alt="Animal 2">
+                        <p>Animal 2</p>
+                    </div>
+
+                    <div class="animal-option" data-animal="waiting">
+                        <img src="placeholder-3.jpg" alt="Animal 3">
+                        <p>Animal 3</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="quiz.js"></script>
+</body>
+</html>
