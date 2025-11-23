@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooKid - Jogo da Memória</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="memory.css"> 
+</head>
+
+<style>
+    header {
+        justify-content: space-between;
+    }
+</style>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <h1 class="title">ZOO<span>KID</span></h1>
+
+        <nav>
+            <a href="index.html">VOLTAR</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <h2  data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000">JOGO DA MEMÓRIA ANIMAL 🐾</h2>
+            <p  data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">Combine os pares de animais e aprenda seus nomes!</p>
+            
+            <div data-aos="fade-left" data-aos-duration="3000" data-aos-delay="600"class="score-board">
+                Tentativas: <span id="moves-count">0</span> | Pares: <span id="matched-count">0</span>
+            </div>
+
+            <div data-aos="zoom-in" data-aos-duration="3000" data-aos-delay="600" class="memory-game-grid" id="memory-game-grid">
+                </div>
+
+            <div id="win-modal" class="modal">
+                <div class="modal-content">
+                    <h3>🎉 Parabéns! Você Venceu! 🎉</h3>
+                    <p>Você completou o jogo em <span id="final-moves">0</span> tentativas.</p>
+                    <button id="restart-button">JOGAR NOVAMENTE</button>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <script src="memory.js"></script>
+     <script src="quiz.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+</html>

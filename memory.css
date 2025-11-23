@@ -1,0 +1,155 @@
+/* memory.css */
+
+/* Estilos gerais do container do jogo */
+.memory-game-grid {
+    width: 600px; 
+    margin: 2rem auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); 
+    grid-gap: 10px;
+    perspective: 1000px;
+    justify-content: center;
+}
+
+nav .btn-inicio {
+    text-decoration: none;
+    color: yellow;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #94cbfa;
+    padding: 0.5rem 1.2rem;
+    border-radius: 60px;
+    transition: background-color 0.5s ease, color 0.3s ease;
+}
+
+/* Estilo da Carta Individual */
+.memory-card {
+    width: 140px;
+    height: 140px;
+    position: relative; 
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+.memory-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}   
+
+/* Estado da carta virada (encontrada ou clicada) */
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.memory-card.match {
+    /* Efeito para o par encontrado */
+    border: 3px solid #28a745; 
+    box-shadow: 0 0 15px #28a745;
+    pointer-events: none;
+}
+
+.memory-card:active {
+    transform: scale(0.97);
+    transition: transform .2s;
+}
+
+/* Frente e Verso da Carta */
+.front-face,
+.back-face {
+    width: 100%;
+    height: 100%;
+    /* 🚨 CORREÇÃO: Removido o padding e adicionado top/left para estabilizar a posição */
+    position: absolute; 
+    top: 0;
+    left: 0;
+    border-radius: 10px;
+    background: white;
+    backface-visibility: hidden; /* Esconde o lado oposto */
+}
+
+.front-face {
+    transform: rotateY(180deg); /* A imagem do animal fica virada */
+}
+
+/* Imagens */
+.front-face img,
+.back-face img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    /* Se quiser a imagem menor, adicione padding ao .front-face/.back-face, mas use no img */
+    padding: 5px; 
+}
+
+.back-face {
+    background: #f3cb2b; /* Cor da capa da carta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    color: #0d0d0d;
+    font-weight: 900;
+}
+
+/* Score Board */
+.score-board {
+    background-color: #f8e9ac;
+    color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+/* Estilos do Modal de Vitória */
+.modal {
+    display: none; /* Escondido por padrão */
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto; /* Centraliza verticalmente */
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 20px;
+    text-align: center;
+    color: #0d0d0d;
+}
+
+.modal-content h3 {
+    color: #28a745;
+    font-size: 2.5rem;
+}
+
+#restart-button {
+    background-color: #f3cb2b;
+    color: #0d0d0d;
+    border: none;
+    padding: 1rem 2rem;
+    margin-top: 1.5rem;
+    font-size: 1.5rem;
+    font-weight: 900;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+#restart-button:hover {
+    background-color: #eab700;
+}

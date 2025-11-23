@@ -19,24 +19,30 @@ body{
 
 header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 1rem 4rem;
     color: white;
-    background-color: #eee3b9;
 }
 
+
+
 nav a {
+    border-radius: 30px;
+    padding: 1rem 3rem;
+    background-color: rgb(246, 199, 142);
     margin-left: 2rem;
     text-decoration: none;
-    color: #f3cb2b;
+    font-size: 1.4rem;
+    color: #000000;
     font-weight: 500;
     transition: color 0.3s ease;
     text-shadow: #000000 1px 1px 2px;
 }
 
 nav a:hover {
-    color: #8f8ff8;
+    background-color: #f3cb2b;
+    color: #ffffff;
 }
 
 span {
@@ -46,13 +52,13 @@ span {
 
 .title {
     font-family: 'Gugi', cursive;
-    font-size: 3rem;
+    font-size: 4.5rem;
     text-shadow: 2px 2px 4px rgb(110, 110, 110);
 }
 
 main {
     text-align: center;
-    padding: 2rem 4rem;
+    padding: 2rem 10rem;
     min-height: calc(90vh - 10rem);
     color: #ffffff;
 }
@@ -73,7 +79,7 @@ p {
 }
 
 .games {
-    margin-top: 4rem;
+    margin-top: 1rem;
     display: flex;
     justify-content: center;
     gap: 2rem;
