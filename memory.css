@@ -153,3 +153,58 @@ nav .btn-inicio {
 #restart-button:hover {
     background-color: #eab700;
 }
+
+/* ... (Seus estilos existentes em memory.css) ... */
+
+/* ------------------------------------------------ */
+/* RESPONSIVIDADE (MOBILE / TABLET) */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+    .score-board {
+        font-size: 1.2rem;
+    }
+    
+    /* Reduz o tamanho e muda para 3 colunas em telas menores */
+    .memory-game-grid {
+        width: 95%; /* Ocupa quase toda a largura da tela */
+        grid-template-columns: repeat(3, 1fr); /* 3 colunas para celulares */
+        grid-gap: 5px; /* Reduz o espaço entre as cartas */
+        margin: 1.5rem auto;
+    }
+    
+    /* Reduz o tamanho da carta para caber no grid de 3 colunas */
+    .memory-card {
+        width: 100px; 
+        height: 100px;
+    }
+
+    .back-face {
+        font-size: 2rem; /* Diminui o ponto de interrogação */
+    }
+
+    .modal-content {
+        margin: 25% auto;
+        width: 90%;
+    }
+
+    .modal-content h3 {
+        font-size: 2rem;
+    }
+
+    #restart-button {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Ajustes para telas de celulares muito pequenas */
+    .memory-game-grid {
+        grid-template-columns: repeat(3, 1fr); /* Mantém 3 colunas */
+    }
+    
+    .memory-card {
+        width: 90px;
+        height: 90px;
+    }
+}

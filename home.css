@@ -134,3 +134,58 @@ h3 {
     max-width: 250px;
     height: auto;
 }
+
+/* ... (Seus estilos existentes em home.css) ... */
+
+/* ------------------------------------------------ */
+/* RESPONSIVIDADE (MOBILE / TABLET) */
+/* ------------------------------------------------ */
+
+@media (max-width: 1024px) {
+    /* Ajustes para telas maiores (ex: tablets em modo paisagem) */
+    main {
+        padding: 2rem 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para a maioria dos tablets e celulares */
+
+    header {
+        padding: 1rem 2rem;
+        /* Coloca a navegação em nova linha (se houver nav) */
+        flex-direction: column; 
+    }
+
+    .title {
+        font-size: 3rem; /* Diminui o título */
+    }
+
+    /* Reduz o padding da seção principal */
+    main {
+        padding: 1rem 2rem; 
+    }
+
+    h2 {
+        font-size: 3rem; /* Diminui o subtítulo principal */
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    /* Organiza os cards do jogo em coluna */
+    .games {
+        flex-direction: column;
+        gap: 2.5rem;
+    }
+
+    .game-card {
+        max-width: 90%; /* Ocupa quase a largura total */
+        margin-left: 2rem auto;
+    }
+
+    .game-card h3 {
+        font-size: 1.8rem;
+    }
+}
