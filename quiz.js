@@ -1,11 +1,11 @@
-// quiz.js - Versão com Botão "Próxima Pergunta" e Sem Categoria
+// quiz.js - Versão com Limite de 10 Rodadas
 
 // 1. ESTRUTURA DE DADOS: MAPA DE ANIMAIS E CATEGORIAS
 const ANIMALS = [
     // 1. ANIMAIS DA FAZENDA (FARM) - 6 Animais
     { name: 'Vaca', sound: 'cow.mp3', image: 'cow-sim.jpg', category: 'farm', correctName: 'Vaca' },
     { name: 'Galinha', sound: 'chicken.mp3', image: 'chicken-sim.jpg', category: 'farm', correctName: 'Galinha' },
-    { name: 'Porco', sound: 'pig.mp3', image: 'pig-sim.jpg', category: 'Porco', correctName: 'Porco' },
+    { name: 'Porco', sound: 'pig.mp3', image: 'pig-sim.jpg', category: 'farm', correctName: 'Porco' },
     { name: 'Ovelha', sound: 'sheep.mp3', image: 'sheep-sim.jpg', category: 'farm', correctName: 'Ovelha' },
     { name: 'Pato', sound: 'duck.mp3', image: 'duck-sim.jpg', category: 'farm', correctName: 'Pato' },
     { name: 'Cavalo', sound: 'horse.mp3', image: 'horse-sim.jpg', category: 'farm', correctName: 'Cavalo' },
@@ -16,11 +16,10 @@ const ANIMALS = [
     { name: 'Coelho', sound: 'rabbit.mp3', image: 'rabbit-sim.jpg', category: 'domestic', correctName: 'Coelho' },
     { name: 'Papagaio', sound: 'parrot.mp3', image: 'parrot-sim.jpg', category: 'domestic', correctName: 'Papagaio' },
     { name: 'Canário', sound: 'canary.mp3', image: 'canary-sim.jpg', category: 'domestic', correctName: 'Canário' },
-    { name: 'Peixe', sound: 'bubble.mp3', image: 'fish-sim.jpg', category: 'domestic', correctName: 'Peixe (Aquário)' }, 
     
     // 3. ANIMAIS DA SELVA (JUNGLE) - 6 Animais
     { name: 'Macaco', sound: 'monkey.mp3', image: 'monkey-sim.jpg', category: 'jungle', correctName: 'Macaco' },
-    { name: 'Bem Te Vi', sound: 'tucan.mp3', image: 'tucan-sim.jpg', category: 'jungle', correctName: 'Bem Te Vi' },
+    { name: 'Tucano', sound: 'tucan.mp3', image: 'tucan-sim.jpg', category: 'jungle', correctName: 'Tucano' },
     { name: 'Jaguar', sound: 'jaguar.mp3', image: 'jaguar-sim.jpg', category: 'jungle', correctName: 'Jaguar' },
     { name: 'Cobra', sound: 'snake.mp3', image: 'snake-sim.jpg', category: 'jungle', correctName: 'Cobra' },
     { name: 'Gorila', sound: 'gorilla.mp3', image: 'gorilla-sim.jpg', category: 'jungle', correctName: 'Gorila' },
@@ -47,8 +46,10 @@ const ANIMALS = [
 let score = 0;
 let correctCount = 0;
 let currentCorrectAnimal = null;
-let currentCategory = 'all'; // Mantém 'all' como padrão
+let currentCategory = 'all'; 
 let currentAudio = null; 
+let roundCount = 0; // NOVA VARIÁVEL: Contador de rodadas
+const MAX_ROUNDS = 10; // NOVA CONSTANTE: Limite de rodadas
 
 // 3. SELETORES DO DOM
 const scoreElement = document.getElementById('score');
@@ -56,8 +57,6 @@ const correctCountElement = document.getElementById('correct-count');
 const playSoundBtn = document.getElementById('play-sound-btn');
 const optionsContainer = document.getElementById('options-container');
 const feedbackMessage = document.getElementById('feedback-message'); 
-
-// NOVO SELETOR: Botão Próxima Pergunta
 const nextQuestionBtn = document.getElementById('next-question-btn');
 
 
@@ -67,7 +66,7 @@ const nextQuestionBtn = document.getElementById('next-question-btn');
  * Atualiza o placar na interface.
  */
 function updateScore() {
-    scoreElement.textContent = score;
+    scoreElement.textContent = `${score} (Rodada ${roundCount}/${MAX_ROUNDS})`; // Incluindo o contador de rodadas
     correctCountElement.textContent = correctCount;
 }
 
@@ -93,8 +92,8 @@ function displayFeedback(message, isCorrect) {
 function stopAudio() {
     if (currentAudio) {
         currentAudio.pause();
-        currentAudio.currentTime = 0; // Volta para o início
-        playSoundBtn.textContent = '👂 Tocar o Som Novamente';
+        currentAudio.currentTime = 0; 
+        playSoundBtn.textContent = 'Tocar o Som Novamente';
         playSoundBtn.disabled = false;
     }
 }
@@ -103,6 +102,12 @@ function stopAudio() {
  * Configura o estado do jogo para começar uma nova pergunta.
  */
 function selectNewQuestion() {
+    // Verifica se atingiu o limite de rodadas
+    if (roundCount >= MAX_ROUNDS) {
+        endGame();
+        return;
+    }
+
     // 1. Esconde o botão Próxima Pergunta e reabilita o botão Som
     nextQuestionBtn.style.display = 'none';
     playSoundBtn.disabled = false;
@@ -111,10 +116,8 @@ function selectNewQuestion() {
     feedbackMessage.textContent = '';
     feedbackMessage.classList.remove('correct-color', 'incorrect-color');
 
-    // 3. Define os animais disponíveis (atualmente todos, pois não há filtro)
-    const availableAnimals = currentCategory === 'all'
-        ? ANIMALS
-        : ANIMALS.filter(animal => animal.category === currentCategory);
+    // 3. Define os animais disponíveis
+    const availableAnimals = ANIMALS; // Sem filtro de categoria (usando 'all')
 
     if (availableAnimals.length < 3) {
         displayFeedback("Ops! Adicione mais animais a esta categoria para jogar.", false);
@@ -141,6 +144,7 @@ function selectNewQuestion() {
     options = options.sort(() => 0.5 - Math.random());
 
     renderOptions(options);
+    updateScore(); // Atualiza a pontuação/rodada ao iniciar a pergunta
 }
 
 /**
@@ -150,11 +154,6 @@ function selectNewQuestion() {
 function renderOptions(options) {
     optionsContainer.innerHTML = ''; 
     
-    // Reabilita os cliques em todas as opções (para o caso de um erro anterior)
-    Array.from(optionsContainer.children).forEach(option => {
-         option.style.pointerEvents = 'auto'; 
-    });
-
     options.forEach(animal => {
         const optionDiv = document.createElement('div');
         optionDiv.classList.add('animal-option');
@@ -181,17 +180,15 @@ function renderOptions(options) {
 function playSound() {
     if (!currentCorrectAnimal || !currentCorrectAnimal.sound) return;
 
-    stopAudio(); // Para qualquer áudio anterior antes de iniciar um novo
+    stopAudio(); 
     
     const audioFilePath = currentCorrectAnimal.sound; 
     const audio = new Audio(audioFilePath);
-    currentAudio = audio; // Define o objeto Audio atual para a variável global
+    currentAudio = audio; 
 
-    // Feedback visual/tátil no botão
     playSoundBtn.textContent = '🔊 Tocando...';
     playSoundBtn.disabled = true;
 
-    // Tenta tocar o áudio usando Promise e tratamento de erro
     try {
         audio.play().then(() => {
             console.log(`Áudio ${audioFilePath} iniciado com sucesso.`);
@@ -200,9 +197,8 @@ function playSound() {
             playSoundBtn.textContent = '❌ Erro no Áudio! Tente novamente.';
         });
 
-        // Habilita o botão novamente após o som terminar
         audio.onended = () => {
-            playSoundBtn.textContent = '👂 Tocar o Som Novamente';
+            playSoundBtn.textContent = 'Tocar o Som Novamente';
             playSoundBtn.disabled = false;
         };
 
@@ -220,7 +216,8 @@ function playSound() {
  * @param {HTMLElement} clickedElement - O div do animal clicado.
  */
 function checkAnswer(selectedAnimalName, clickedElement) {
-    // 1. Para o áudio imediatamente ao receber a resposta
+    // 1. Incrementa a rodada e para o áudio
+    roundCount++; 
     stopAudio(); 
 
     // 2. Desabilita os cliques em todas as opções
@@ -232,18 +229,15 @@ function checkAnswer(selectedAnimalName, clickedElement) {
     let isAnswerCorrect = false;
 
     if (selectedAnimalName === currentCorrectAnimal.name) {
-        // Resposta Correta
         score += 10;
         correctCount += 1;
         clickedElement.classList.add('correct');
         message = '🎉 VOCÊ ACERTOU! (+10 pontos)';
         isAnswerCorrect = true;
     } else {
-        // Resposta Incorreta
         score = Math.max(0, score - 5); 
         clickedElement.classList.add('incorrect');
         
-        // Destaca a resposta correta
         const correctElement = Array.from(optionsContainer.children).find(el => el.dataset.animal === currentCorrectAnimal.name);
         if (correctElement) {
             correctElement.classList.add('correct');
@@ -257,9 +251,9 @@ function checkAnswer(selectedAnimalName, clickedElement) {
     
     // 3. Mostra o botão Próxima Pergunta
     nextQuestionBtn.style.display = 'inline-block';
-    playSoundBtn.disabled = true; // Desabilita o som enquanto o resultado é mostrado
+    playSoundBtn.disabled = true; 
     
-    // 4. Remove o feedback visual após 3 segundos, mas mantendo os botões visíveis para a próxima jogada.
+    // 4. Remove o feedback visual após 3 segundos
     setTimeout(() => {
         Array.from(optionsContainer.children).forEach(option => {
             option.classList.remove('correct', 'incorrect');
@@ -268,20 +262,58 @@ function checkAnswer(selectedAnimalName, clickedElement) {
     }, 3000);
 }
 
+/**
+ * Lida com o fim do jogo após atingir o limite de rodadas.
+ */
+function endGame() {
+    stopAudio();
+    nextQuestionBtn.style.display = 'none';
+    playSoundBtn.disabled = true;
+    optionsContainer.innerHTML = ''; // Limpa as opções
+    
+    // Calcula o percentual de acertos
+    const successRate = (correctCount / MAX_ROUNDS) * 100;
+    
+    let finalMessage = `🏆 FIM DO QUIZ! 🏆\nSua pontuação final é ${score}.\nVocê acertou ${correctCount} de ${MAX_ROUNDS} perguntas (${successRate.toFixed(0)}%).`;
+    
+    if (successRate >= 80) {
+        finalMessage += "\nVOCÊ É UM EXPERT EM SONS ANIMAIS!";
+    } else if (successRate >= 50) {
+        finalMessage += "\nÓTIMO TRABALHO! Você está quase lá!";
+    } else {
+        finalMessage += "\nBom esforço! Tente novamente para melhorar!";
+    }
+
+    // Exibe a mensagem final
+    displayFeedback(finalMessage, successRate >= 50); 
+    
+    // Reinicia o jogo após 5 segundos, simulando a ida para o "próximo tema"
+    setTimeout(() => {
+        initGame();
+    }, 5000);
+}
+
 
 // 5. INICIALIZAÇÃO DO JOGO
 
 /**
- * Configura os ouvintes de eventos e inicia o jogo.
+ * Zera o placar e inicia a primeira pergunta.
  */
 function initGame() {
-    // Evento do botão Tocar Som
-    playSoundBtn.addEventListener('click', playSound);
+    // Zera as variáveis de estado do jogo
+    score = 0;
+    correctCount = 0;
+    roundCount = 0; 
 
-    // NOVO EVENTO: Botão Próxima Pergunta
+    // Reconfigura os ouvintes de evento, garantindo que não haja duplicatas
+    playSoundBtn.removeEventListener('click', playSound);
+    nextQuestionBtn.removeEventListener('click', selectNewQuestion);
+    
+    playSoundBtn.addEventListener('click', playSound);
     nextQuestionBtn.addEventListener('click', selectNewQuestion);
 
-    // Inicia a primeira pergunta
+    // Inicia a primeira pergunta (Rodada 1)
+    roundCount = 0;
     selectNewQuestion(); 
 }
 
