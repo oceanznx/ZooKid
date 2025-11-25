@@ -53,7 +53,7 @@ span {
 .title {
     font-family: 'Gugi', cursive;
     font-size: 4.5rem;
-    text-shadow: 2px 2px 4px rgb(110, 110, 110);
+    text-shadow: 0px 0px 5px rgb(0, 0, 0);
 }
 
 main {
@@ -79,39 +79,20 @@ p {
 }
 
 .games {
-    margin-top: 1rem;
     display: flex;
     justify-content: center;
-    gap: 2rem;
+    gap: 3rem;
 }
 
 .game-card {
-max-width: 400px;
- padding: 0 2rem;
+max-width: 500px;
+
 }
 
-.play-button {
-    transition: background-color 0.5s ease, color 0.3s ease;
-    text-decoration: none;
-    color: yellow;
-    font-size: 1.3rem;
-    font-weight: 600;
-    background-color: #94cbfa;
-    padding: 0.6rem 1.5rem;
-    border-radius: 60px;
-}
 
-.btn {
-   margin-top: 1.4rem;
-}
-
-.play-button:hover {
-    background-color: #f2e9c3;
-    color: #128cf6;
-}
 
 .desc{
-    margin-top: 1rem;
+
     font-size: 1.1rem;
 }
 
@@ -123,9 +104,14 @@ h3 {
 } 
 
 .banner {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.607);
     padding: 2rem;
     border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    flex-direction: column;
+    border: #f3cb2b 4px solid;
 }
 
 .games-pictures {
@@ -133,7 +119,17 @@ h3 {
     border: #eab700 4px solid;
     max-width: 250px;
     height: auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
+.games-pictures:hover {
+    transform: scale(1.03);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.839);
+}
+
+
+
+
 
 /* ... (Seus estilos existentes em home.css) ... */
 

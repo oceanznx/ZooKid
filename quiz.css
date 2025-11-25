@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    max-width: 800px;
+    gap: 1rem;
+    max-width: 700px;
     margin: 0 auto;
 }
 
@@ -15,27 +15,26 @@
     color: #0d0d0d;
     padding: 1rem 2rem;
     border-radius: 20px;
-    font-size: 1.2rem;
-    font-weight: 700;
+    font-size: 1rem;
+    font-weight: 600;
 }
 
-/* Novo container para os botões de controle (Som e Próxima Pergunta) */
+
 .controls-container {
     display: flex;
     justify-content: center;
-    gap: 1.5rem; /* Espaço entre os botões */
-    margin-top: 1rem;
-    width: 100%; /* Ocupa a largura total para centralizar melhor */
+    gap: 1rem; 
+    width: 100%; 
 }
 
-/* Estilo do Botão Tocar Som (amarelo) */
+
 .sound-button {
     background-color: #cba50d;
     color: #ffffff;
     border: 2px solid #f5e093;
-    padding: 1rem 2rem;
+    padding: 1rem 1.5rem;
     font-size: 1.8rem;
-    font-weight: 700;
+    font-weight: 600;
     border-radius: 80px;
     cursor: pointer;
     transition: background-color 0.3s ease;
@@ -45,15 +44,15 @@
     background-color: #5d4900;
 }
 
-/* NOVO ESTILO: Botão Próxima Pergunta (verde) */
+
 .next-button {
-    background-color: #ff8000; /* Verde para avançar */
+    background-color: #ff8000; 
     color: white;
     border: 2px solid #ffa733;
     padding: 1rem 1rem;
     font-size: 1.8rem;
-    font-weight: 700;
-    border-radius: 80px;
+    font-weight: 600;
+    border-radius: 60px;
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
@@ -66,23 +65,22 @@
     display: flex;
     justify-content: center;
     gap: 1.5rem;
-    margin-top: 2rem;
     color: #eab700;
 }
 
 .animal-option {
     background-color: rgba(0, 0, 0, 0.9);
-    padding: 1rem;
-    border-radius: 30px;
+    padding: 0.2rem;
+    border-radius: 20px;
     cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
     text-align: center;
 }
 
 .animal-option img{
-    max-width: 250px; 
-    max-height: auto;
-    border-radius: 30px;
+    max-width: 240px; 
+    max-height: 220px;
+    border-radius: 20px;
     border: 2px solid #f3cb2b;
 }
 
@@ -92,35 +90,35 @@
     box-shadow: 0 0 15px rgba(255, 255, 255, 0.7);
 }
 
-/* Feedback de Resposta */
+
 .animal-option.correct {
-    border: 5px solid #28a745; /* Verde para resposta correta */
+    border: 5px solid #28a745; 
     box-shadow: 0 0 20px #28a745;
 }
 
 .animal-option.incorrect {
-    border: 5px solid #dc3545; /* Vermelho para resposta incorreta */
+    border: 5px solid #dc3545; 
     box-shadow: 0 0 20px #dc3545;
 }
 
-/* Estilos para o banner de Feedback (acerto/erro) */
+
 .feedback-message {
     font-size: 2.5rem;
     font-weight: 900;
     margin: 1rem 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-    min-height: 40px; /* Para evitar que o layout "salte" */
+    min-height: 40px; 
 }
 
 .correct-color {
-    color: #28a745; /* Verde */
+    color: #28a745;
 }
 
 .incorrect-color {
-    color: #dc3545; /* Vermelho */
+    color: #dc3545; 
 }
 
-/* ... (Seus estilos existentes em quiz.css) ... */
+
 
 /* ------------------------------------------------ */
 /* RESPONSIVIDADE (MOBILE / TABLET) */
