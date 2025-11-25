@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooKid - Contagem Animal</title>
+    
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="count.css"> 
+</head>
+
+<style>
+    header {
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <h1 class="title">ZOO<span>KID</span></h1>
+
+        <nav>
+            <a href="index.html">VOLTAR</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <h2 data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000">CONTAGEM ANIMAL 🧮</h2>
+            <p data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">CONTE OS ANIMAIS E DESCUBRA A RESPOSTA CERTA!</p>
+            
+            <div class="count-quiz-container">
+                <div class="score-board">
+                    PONTUAÇÃO: <span id="score">0</span> | ACERTOS: <span id="correct-count">0</span>
+                </div>
+
+                <h3 id="question-text" class="question-text">QUANTOS ANIMAIS VOCÊ VÊ NO TOTAL?</h3>
+                
+                <div class="animal-display-area" id="animal-display-area">
+                    </div>
+
+                <h3 id="feedback-message" class="feedback-message"></h3>
+
+                <div class="options-container" id="options-container">
+                    </div>
+
+                <div class="controls-container">
+                    <button id="next-question-btn" class="next-button" style="display:none;">
+                        PRÓXIMA PERGUNTA ▶
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="count.js"></script>
+</body>
+</html>

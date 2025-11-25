@@ -1,0 +1,168 @@
+
+.count-quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.score-board {
+    background-color: #f4f2e5;
+    color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.question-text {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #f3cb2b; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 40px; 
+}
+
+
+.animal-display-area {
+    border: 2px solid #f3cb2b;
+    width: 100%;
+    max-width: 800px;
+    min-height: 300px;
+    background-color: rgba(255, 255, 255, 0.783);
+    border-radius: 20px;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.animal-icon {
+    width: 120px; 
+    height: 120px;
+    margin: 3px;
+    object-fit: contain;
+    transition: transform 0.2s;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+}
+
+.animal-icon:hover {
+    transform: scale(1.05);
+    box-shadow: #000000 0 0 10px;
+}
+
+
+
+.options-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1.5rem;
+    width: 100%;
+    max-width: 600px;
+}
+
+.option-button {
+    background-color: #f3cb2b; /* Amarelo */
+    color: #0d0d0d;
+    border: none;
+    padding: 1rem;
+    font-size: 2rem;
+    font-weight: 900;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+.option-button:hover {
+    background-color: #eab700;
+    transform: scale(1.05);
+    box-shadow: #ffffff 0 0 10px;
+}
+
+/* Feedback Visual (cores) */
+.option-button.correct {
+    background-color: #28a745; /* Verde */
+    color: white;
+}
+
+.option-button.incorrect {
+    background-color: #dc3545; /* Vermelho */
+    color: white;
+}
+
+.feedback-message {
+    font-size: 2rem;
+    font-weight: 700;
+    margin: 1rem 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 40px; 
+}
+
+.correct-color {
+    color: #28a745;
+}
+
+.incorrect-color {
+    color: #dc3545;
+}
+
+/* Botão Próximo */
+.next-button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    border-radius: 80px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #257436;
+}
+/* ------------------------------------------------ */
+/* RESPONSIVIDADE (MOBILE / TABLET) */
+/* ------------------------------------------------ */
+
+@media (max-width: 768px) {
+    .question-text {
+        font-size: 1.8rem;
+    }
+
+    .animal-display-area {
+        min-height: 250px;
+        max-width: 95%;
+        padding: 10px;
+    }
+    
+    .animal-icon {
+        width: 70px;
+        height: 70px;
+        margin: 3px;
+    }
+
+    .options-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 colunas para o celular */
+        max-width: 95%;
+        gap: 1rem;
+    }
+    
+    .option-button {
+        font-size: 1.5rem;
+        padding: 0.8rem;
+    }
+
+    .next-button {
+        padding: 1rem 2rem;
+        font-size: 1.5rem;
+    }
+
+  
+}
