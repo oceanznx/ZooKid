@@ -23,6 +23,8 @@ header {
     align-items: center;
     padding: 1rem 4rem;
     color: white;
+    background-color: rgba(0, 0, 0, 0.234);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZooKid - Contagem Animal</title>
-    
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="home.css">
     <link rel="stylesheet" href="count.css"> 
 </head>
@@ -24,8 +24,11 @@
         </nav>
     </header>
     
-    <main>
-        <section class="banner">
+    <main  >
+        <section data-aos-delay="600" data-aos="fade-zoom-in"
+     data-aos-easing="ease-in-back"
+     data-aos-delay="300"
+     data-aos-offset="0" data-aos-duration="1000"  class="banner">
             <h2 data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000">CONTAGEM ANIMAL 🧮</h2>
             <p data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">CONTE OS ANIMAIS E DESCUBRA A RESPOSTA CERTA!</p>
             
@@ -34,7 +37,7 @@
                     PONTUAÇÃO: <span id="score">0</span> | ACERTOS: <span id="correct-count">0</span>
                 </div>
 
-                <h3 id="question-text" class="question-text">QUANTOS ANIMAIS VOCÊ VÊ NO TOTAL?</h3>
+                <h3  id="question-text" class="question-text">QUANTOS ANIMAIS VOCÊ VÊ NO TOTAL?</h3>
                 
                 <div class="animal-display-area" id="animal-display-area">
                     </div>
@@ -54,5 +57,9 @@
     </main>
 
     <script src="count.js"></script>
+       <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 </body>
 </html>

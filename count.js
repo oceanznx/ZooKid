@@ -1,4 +1,3 @@
-// count.js
 
 // 1. ESTRUTURA DE DADOS: USANDO OS ANIMAIS E SUAS IMAGENS
 const ANIMALS = [
