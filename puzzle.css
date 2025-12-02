@@ -1,0 +1,129 @@
+/* puzzle.css */
+
+/* ------------------------------------------------ */
+/* ESTILOS DO CONTEÚDO PRINCIPAL */
+/* ------------------------------------------------ */
+
+.score-board {
+    background-color: #f4f2e5;
+    color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ------------------------------------------------ */
+/* ESTILOS DO QUEBRA-CABEÇA */
+/* ------------------------------------------------ */
+
+.puzzle-container {
+    /* Define o tamanho total do quebra-cabeça (ex: 400x400) */
+    width: 400px; 
+    height: 400px; 
+    margin: 20px auto;
+    display: grid;
+    /* 4 colunas e 4 linhas para um grid 4x4 */
+    grid-template-columns: repeat(4, 1fr); 
+    grid-template-rows: repeat(4, 1fr); 
+    gap: 0; /* Sem espaço entre as peças */
+    border: 5px solid #f3cb2b; /* Borda para destaque */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background-color: #333; /* Fundo escuro para a área vazia */
+}
+
+.puzzle-piece {
+    /* Estilo padrão da peça */
+    width: 100%;
+    height: 100%;
+    background-image: url('puzzle.jpg'); /* Imagem de fundo */
+    background-size: 400px 400px; /* Deve ser o tamanho total do container */
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 0, 0.1); /* Linha fina para separar as peças */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* A peça vazia deve ser transparente ou ter uma cor de fundo */
+.empty-piece {
+    background-image: none !important;
+    background-color: #1a1a1a; 
+    cursor: default;
+    opacity: 0.8;
+}
+
+/* Estilo do Botão de Reiniciar e Modal */
+.restart-button, .show-image-button {
+    background-color: #f3cb2b;
+    color: #0d0d0d;
+    border: none;
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin: 5px; /* Para separar os botões */
+}
+
+.restart-button:hover, .show-image-button:hover {
+    background-color: #eab700;
+}
+
+
+/* Estilos do Modal (reutilizados do memory.css, mas incluídos aqui por segurança) */
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.8);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: #fff;
+    margin: 15% auto;
+    padding: 30px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 20px;
+    color: #0d0d0d;
+}
+
+.modal-content h3 {
+    color: #f3cb2b;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* ------------------------------------------------ */
+/* RESPONSIVIDADE */
+/* ------------------------------------------------ */
+
+@media (max-width: 500px) {
+    .puzzle-container {
+        width: 300px; /* Reduz o tamanho do quebra-cabeça no mobile */
+        height: 300px;
+        background-size: 300px 300px;
+    }
+    
+    .restart-button, .show-image-button {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+
+    .score-board {
+        font-size: 1.2rem;
+    }
+}

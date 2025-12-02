@@ -1,0 +1,132 @@
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    max-width: 600px; 
+    margin: 2rem auto;
+}
+
+.score-board {
+    background-color: #f4f2e5;
+    color: #0d0d0d;
+    padding: 1rem 2rem;
+    border-radius: 20px;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.game-message {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: #f3cb2b;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    min-height: 40px; 
+}
+
+
+.game-board {
+    width: 400px; 
+    height: 400px; 
+    display: grid;
+    grid-template-columns: repeat(20, 1fr); 
+    grid-template-rows: repeat(20, 1fr);
+    border: 5px solid #cba50d;
+    background-color: #2e2e2e; 
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    background: url(snake\ fundo.webp);
+    opacity: 80%;
+}
+
+
+
+
+.snake-cell {
+    background-color: #205669; 
+    border-radius: 20%; 
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2); 
+    transform: scale(0.9); 
+    transition: all 0.5s; 
+    gap: 0;
+}
+
+
+.snake-head {
+    background-color: #007cf8; 
+    border-radius: 30%;
+    position: relative;
+    z-index: 2; 
+    box-shadow: 0 0 10px rgba(243, 43, 43, 0.6); 
+    transform: scale(1.15); 
+}
+
+.snake-head::before,
+.snake-head::after {
+    content: '';
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background-color: #000; 
+    border-radius: 50%;
+    top: 25%; 
+    transition: all 1s;
+}
+
+
+.snake-head::before { left: 20%; }
+.snake-head::after { right: 20%; }
+
+
+
+
+.head-up { transform: scale(1.05) rotate(0deg); }
+
+
+.head-down { transform: scale(1.05) rotate(180deg); }
+
+
+.head-left { transform: scale(1.05) rotate(-90deg); }
+
+
+.head-right { transform: scale(1.05) rotate(90deg); }
+
+
+
+.food-cell {
+    background-color: #ff4757; 
+    border-radius: 50%;
+    box-shadow: 0 0 10px #ff4757;
+    position: relative;
+}
+
+
+.food-cell::after {
+    content: '';
+    position: absolute;
+    top: -4px;
+    left: 50%;
+    width: 4px;
+    height: 6px;
+    background-color: #2e7a4b;
+    border-radius: 2px;
+}
+
+.food-cell {
+    background-color: #dc3545; 
+    border-radius: 50%; 
+    box-shadow: 0 0 5px #dc3545;
+}
+
+
+@media (max-width: 500px) {
+    .game-board {
+        width: 300px; 
+        height: 300px;
+    }
+
+    .game-message {
+        font-size: 1.2rem;
+    }
+}

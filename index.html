@@ -9,9 +9,37 @@
 </head>
 <body>
     <header data-aos="fade-down" data-aos-duration="1500">
-        <h1 class="title">ZOO<span>KID</span></h1>
+      <div class="seila">
+    <h1 class="title">ZOO<span>KID</span></h1>
+
+    <button class="hamburger-btn" id="hamburger-btn">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+    </button>
+
+    <div class="dropdown-menu" id="dropdown-menu">
+        <a href="">Curiosidades</a>
+        <a href="">Ranking</a>
+        <a href="">Sobre</a>
+        <a href="" class="btn-cnt">Contato</a> 
+    </div>
+    </div>
+      <div class="search-container">
+        <form action="#" method="get">
+            <input type="text" placeholder="Buscar jogos..." name="search" class="search-input">
+            <button type="submit" class="search-button">
+                &#128269;
+            </button>
+        </form>
+        </div>
+
+      <div class="btn">
+        <a href="" class="btn-cnt">Contato</a>
+      </div>
     </header>
-    
+    <div class="zoo">
+    </div>
     <main>
 
        <section data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="banner"> 
@@ -20,43 +48,84 @@
 E VIRAR UM VERDADEIRO DETETIVE DA NATUREZA!</p>
 
 
-
            <section class="games">
-            <div data-aos="fade-right" data-aos-delay="600" data-aos-duration="3000" class="game-card">
-                <h3>JOGO DA MEMÓRIA ANIMAL</h3>
-                 <a href="memory.html"><img class="games-pictures" src="memory.jpg" alt="Quiz dos Sons"></a>
-                <p  data-aos-delay="600" data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0" data-aos-duration="2000" data-aos-delay="600" class="desc"><strong>TESTE SUA MEMÓRIA COMBINANDO OS ANIMAIS COM SUAS IMAGENS!</strong></p>
-     </div>
+            <div data-aos="fade-up" data-aos-delay="600" data-aos-duration="3000" class="game-card">
+                <div class="game-img-container">
+                    <a href="memory.html">
+                        <img class="games-pictures" src="memory.jpg" alt="Jogo da Memória Animal">
+                    </a>
+                    <div class="overlay">
+                        <h3 class="game-title-overlay">JOGO DA MEMÓRIA ANIMAL</h3>
+                         <p class="info">TESTE SUA MEMÓRIA COMBINANDO OS ANIMAIS COM SUAS IMAGENS!</p>
+                    </div>
+                </div>
+               
+            </div>
              
      <hr>
 
             <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
-                <h3>QUIZ ANIMAIS</h3>
-                <a href="quiz.html"><img class="games-pictures" src="quiz.jpg" alt="Quiz dos Sons"></a>
-                <p  data-aos-delay="600" data-aos="fade-zoom-in"
-     data-aos-easing="ease-in-back"
-     data-aos-delay="300"
-     data-aos-offset="0" data-aos-duration="2000" data-aos-delay="600" class="desc"><strong>DESAFIE SEUS CONHECIMENTOS SOBRE OS SONS DOS ANIMAIS EM UM QUIZ DIVERTIDO!</strong></p>
+                 <div class="game-img-container">
+                    <a href="quiz.html">
+                        <img class="games-pictures" src="quiz.jpg" alt="Quiz dos Sons">
+                    </a>
+                    <div class="overlay">
+                        <h3 class="game-title-overlay">QUIZ ANIMAIS</h3>
+                        <p class="info">DESAFIE SEUS CONHECIMENTOS SOBRE OS SONS DOS ANIMAIS EM UM QUIZ DIVERTIDO!</p>
+                    </div>
+                </div>
+                <div class="info">
+                    
+                </div>
             </div>
 
             <hr>
 
-            <div data-aos="fade-left" data-aos-duration="3000" data-aos-delay="600" class="game-card">
-    <h3>CONTAGEM ANIMAL</h3>
-    <a href="count.html"><img class="games-pictures" src="count.png" alt="Jogo de Contagem"></a> <p data-aos-delay="600" data-aos="fade-zoom-in" data-aos-easing="ease-in-back" data-aos-delay="300" data-aos-offset="0" data-aos-duration="2000" data-aos-delay="600" class="desc"><strong>PRATIQUE MATEMÁTICA CONTANDO QUANTOS ANIMAIS DE CADA ESPÉCIE VOCÊ ENCONTRA!</strong></p>
-</div>
+            <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
+                <div class="game-img-container">
+                    <a href="count.html">
+                        <img class="games-pictures" src="count.png" alt="Jogo de Contagem">
+                    </a>
+                    <div class="overlay">
+                        <h3 class="game-title-overlay">CONTAGEM ANIMAL</h3>
+                         <p class="info">PRATIQUE MATEMÁTICA CONTANDO QUANTOS ANIMAIS DE CADA ESPÉCIE VOCÊ ENCONTRA!</p>
+                    </div>
+                </div>
                 
-           </section>
-           </section>
-    </main>
-   
 
-  <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-  <script>
-    AOS.init();
-  </script>
+            </div>
+            </div>
+
+            <hr>
+
+
+            <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
+                 <div class="game-img-container">
+                    <a href="snake.html">
+                        <img style="z-index: 999;" class="games-pictures" src="capa snake.png" alt="Jogo da Cobrinha">
+                    </a>
+                    <div class="overlay">
+                        <h3 class="game-title-overlay">SNAKE</h3>
+                        <p class="info">DIVIRTA-SE COM O CLÁSSICO JOGO DA COBRINHA (SNAKE) E COLETE TODAS AS MAÇÃS!</p>
+                    </div>
+                </div>
+               
+                
+            </div>
+            </div>
+
+
+
+</section>
+</section>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+
+   <script src="menu.js"></script>
 </body>
 </html>

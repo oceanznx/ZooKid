@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZooKid - Jogo da Cobrinha</title>
+    <link rel="stylesheet" href="home.css"> 
+    <link rel="stylesheet" href="snake.css"> 
+</head>
+
+<style>
+    
+    header {
+        justify-content: space-between;
+    }
+</style>
+
+<body>
+    <header>
+        <h1 class="title">ZOO<span>KID</span></h1>
+        <nav>
+            <a href="index.html">VOLTAR</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <h2>JOGO DA COBRINHA 🐍</h2>
+            <p>COMA AS FRUTAS E FAÇA A COBRINHA CRESCER SER BATER NAS PAREDES OU EM SI MESMA!</p>
+            
+            <div class="game-container">
+                <div class="score-board">
+                    PONTUAÇÃO: <span id="score">0</span>
+                </div>
+                
+                <div id="game-board" class="game-board">
+                    </div>
+                
+                <div id="game-message" class="game-message">
+                    PRESSIONE UMA TECLA DE SETA PARA COMEÇAR!
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="snake.js"></script>
+</body>
+</html>
