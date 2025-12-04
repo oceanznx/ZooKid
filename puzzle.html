@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quebra-Cabeça Animal - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="puzzle.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <a href="index.html">🏠 Início</a>
+            <a href="#how-to">🎮 Como Jogar</a>
+            <a href="#puzzles">🧩 Quebra-Cabeças</a>
+            <a href="ranking.html">🏆 Ranking</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="banner puzzle-banner">
+            <h2 data-aos="fade-down" data-aos-duration="1500">🧩 QUEBRA-CABEÇA ANIMAL</h2>
+            <p data-aos="fade-down" data-aos-duration="2000">MONTE AS PEÇAS E DESCUBRA OS ANIMAIS DO ZOOLÓGICO!</p>
+            
+            <div class="puzzle-container">
+                <!-- Painel de Controle -->
+                <div class="control-panel">
+                    <div class="stats-panel">
+                        <div class="stat-item">
+                            <span class="stat-label">TEMPO</span>
+                            <span id="timer" class="stat-value">00:00</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">MOVIMENTOS</span>
+                            <span id="moves" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">PEÇAS</span>
+                            <span id="pieces-count" class="stat-value">0/9</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Níveis de Dificuldade -->
+                    <div class="difficulty-panel">
+                        <h3>🎯 DIFICULDADE:</h3>
+                        <div class="difficulty-buttons">
+                            <button class="diff-btn active" data-difficulty="easy">FÁCIL (3x3)</button>
+                            <button class="diff-btn" data-difficulty="medium">MÉDIO (4x4)</button>
+                            <button class="diff-btn" data-difficulty="hard">DIFÍCIL (5x5)</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles do Jogo -->
+                    <div class="game-controls-panel">
+                        <button id="start-btn" class="control-btn">
+                            <span class="btn-emoji">▶️</span>
+                            <span class="btn-text">Iniciar</span>
+                        </button>
+                        <button id="hint-btn" class="control-btn">
+                            <span class="btn-emoji">💡</span>
+                            <span class="btn-text">Dica</span>
+                        </button>
+                        <button id="shuffle-btn" class="control-btn">
+                            <span class="btn-emoji">🔀</span>
+                            <span class="btn-text">Embaralhar</span>
+                        </button>
+                        <button id="reset-btn" class="control-btn">
+                            <span class="btn-emoji">🔄</span>
+                            <span class="btn-text">Reiniciar</span>
+                        </button>
+                        <button onclick="window.location.href='index.html'" class="control-btn">
+                            <span class="btn-emoji">🏠</span>
+                            <span class="btn-text">Voltar</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Área Principal do Jogo -->
+                <div class="game-area">
+                    <!-- Seletor de Quebra-Cabeça -->
+                    <div class="puzzle-selector" id="puzzles">
+                        <h3>🧩 ESCOLHA UM QUEBRA-CABEÇA:</h3>
+                        <div class="puzzle-options">
+                            <div class="puzzle-option active" data-puzzle="zoologico">
+                                <div class="puzzle-preview">
+                                    <img src="zoologico.jpg" alt="Zoológico" onerror="this.src='https://placehold.co/300x200/4CAF50/white?text=Zoológico'">
+                                </div>
+                                <span>ZOOLÓGICO</span>
+                            </div>
+                            <div class="puzzle-option" data-puzzle="tigre">
+                                <div class="puzzle-preview">
+                                    <img src="tigre quebra.webp" alt="Tigre" onerror="this.src='https://placehold.co/300x200/FF9800/white?text=Tigre'">
+                                </div>
+                                <span>TIGRE</span>
+                            </div>
+                            <div class="puzzle-option" data-puzzle="fazenda">
+                                <div class="puzzle-preview">
+                                    <img src="fazenda quebra.jpg" alt="Fazenda" onerror="this.src='https://placehold.co/300x200/8BC34A/white?text=Fazenda'">
+                                </div>
+                                <span>FAZENDA</span>
+                            </div>
+                            <div class="puzzle-option" data-puzzle="elefante">
+                                <div class="puzzle-preview">
+                                    <img src="elefante quebra.jpg" alt="Elefante" onerror="this.src='https://placehold.co/300x200/9C27B0/white?text=Elefante'">
+                                </div>
+                                <span>ELEFANTE</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Área do Quebra-Cabeça -->
+                    <div class="puzzle-game-area">
+                        <div class="puzzle-board-container">
+                            <!-- Imagem Original (Referência) -->
+                            <div class="reference-image">
+                                <h4>🏞️ IMAGEM ORIGINAL:</h4>
+                                <!-- Adicione após: <h4>🧩 ARRASTE AS PEÇAS PARA O TABULEIRO:</h4> -->
+<div class="view-toggle">
+    <button id="view-mode-btn" class="view-btn">
+        <span class="view-emoji">🔍</span>
+        <span class="view-text">Modo Zoom</span>
+    </button>
+</div>
+                                <div id="reference-image" class="reference-img-container">
+                                    <img id="current-puzzle-img" src="zoologico.jpg" alt="Imagem de referência">
+                                </div>
+                            </div>
+                            
+                            <!-- Tabuleiro do Quebra-Cabeça -->
+                            <div class="puzzle-board-section">
+                                <h4>🧩 ARRASTE AS PEÇAS PARA O TABULEIRO:</h4>
+                                <div class="puzzle-wrapper">
+                                    <div id="puzzle-board" class="puzzle-board">
+                                        <!-- O tabuleiro será gerado por JavaScript -->
+                                    </div>
+                                    <div id="pieces-container" class="pieces-container">
+                                        <!-- As peças serão geradas por JavaScript -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Mensagens e Status -->
+                        <div id="game-message" class="puzzle-message">
+                            <span class="message-emoji">👆</span>
+                            <span class="message-text">ESCOLHA UM QUEBRA-CABEÇA E CLIQUE EM INICIAR!</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Instruções -->
+        <section class="instructions" id="how-to">
+            <div class="instructions-content">
+                <h3>📚 COMO JOGAR:</h3>
+                <div class="instructions-grid">
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">1️⃣</div>
+                        <h4>ESCOLHA</h4>
+                        <p>Selecione um quebra-cabeça animal para montar</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">2️⃣</div>
+                        <h4>ARRANCASTE</h4>
+                        <p>Arraste as peças da direita para o tabuleiro</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">3️⃣</div>
+                        <h4>POSICIONE</h4>
+                        <p>Encaixe cada peça no lugar correto</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">4️⃣</div>
+                        <h4>COMPLETE</h4>
+                        <p>Monte toda a imagem para vencer!</p>
+                    </div>
+                </div>
+                
+                <div class="controls-info">
+                    <h4>🎮 CONTROLES:</h4>
+                    <div class="controls-grid">
+                        <div class="control-tip">
+                            <span class="tip-emoji">🖱️</span>
+                            <span>Clique e arraste para mover peças</span>
+                        </div>
+                        <div class="control-tip">
+                            <span class="tip-emoji">💡</span>
+                            <span>Use "Dica" para ver onde encaixar</span>
+                        </div>
+                        <div class="control-tip">
+                            <span class="tip-emoji">🔀</span>
+                            <span>"Embaralhar" mistura as peças</span>
+                        </div>
+                        <div class="control-tip">
+                            <span class="tip-emoji">🔄</span>
+                            <span>"Reiniciar" começa de novo</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal de Vitória -->
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="modal-emoji">🎉</span>
+                <h2>PARABÉNS!</h2>
+                <span class="modal-emoji">🎉</span>
+            </div>
+            <div class="modal-body">
+                <div class="victory-animal">🧩</div>
+                <h3>VOCÊ COMPLETOU O QUEBRA-CABEÇA!</h3>
+                <div class="victory-stats">
+                    <div class="stat-row">
+                        <span>Tempo:</span>
+                        <span id="final-time">00:00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Movimentos:</span>
+                        <span id="final-moves">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span>Dificuldade:</span>
+                        <span id="final-difficulty">Fácil</span>
+                    </div>
+                </div>
+                <div class="modal-buttons">
+                    <button id="play-again-btn" class="modal-btn">
+                        <span class="btn-emoji">🔄</span>
+                        Jogar Novamente
+                    </button>
+                    <button id="next-puzzle-btn" class="modal-btn">
+                        <span class="btn-emoji">▶️</span>
+                        Próximo
+                    </button>
+                    <button id="share-btn" class="modal-btn">
+                        <span class="btn-emoji">🏆</span>
+                        Salvar Pontuação
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="menu.js"></script>
+    <script src="puzzle.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Pais - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="pais.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="search-container">
+            <form action="#" method="get">
+                <input type="text" placeholder="BUSCAR JOGOS..." name="search" class="search-input">
+                <button type="submit" class="search-button">&#128269;</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <div class="menu-user">
+                <div class="user-avatar" id="user-avatar">🦁</div>
+                <div class="user-info">
+                    <h4 id="user-name">JOGADOR</h4>
+                    <p>NÍVEL: EXPLORADOR</p>
+                </div>
+            </div>
+            
+            <div class="menu-category">NAVEGAÇÃO</div>
+            <a href="index.html">🏠 INÍCIO</a>
+            <a href="ranking.html">🏆 RANKING</a>
+            <a href="configuracoes.html">⚙️ CONFIGURAÇÕES</a>
+            <a href="sobre.html">ℹ️ SOBRE</a>
+            <a href="pais.html" class="active">👨‍👩‍👧‍👦 PARA PAIS</a>
+            
+            <div class="menu-category">JOGOS</div>
+            <a href="memory.html">🧠 MEMÓRIA ANIMAL</a>
+            <a href="quiz.html">🔊 QUIZ DOS SONS</a>
+            <a href="count.html">🧮 CONTAGEM</a>
+            <a href="snake.html">🐍 COBRINHA</a>
+            <a href="labirinto.html">🦁 LABIRINTO</a>
+            <a href="pintura.html">🎨 PINTURA</a>
+            <a href="quebra-cabeca.html">🧩 QUEBRA-CABEÇA</a>
+            <a href="encontre.html">🔍 ENCONTRE O DIFERENTE</a>
+            
+            <div class="menu-category">CONTROLE PARENTAL</div>
+            <a href="#seguranca">🛡️ SEGURANÇA</a>
+            <a href="#tempo">⏰ CONTROLE DE TEMPO</a>
+            <a href="#relatorio">📊 RELATÓRIO DE USO</a>
+            
+            <div style="padding: 2rem; text-align: center;">
+                <a href="#" class="btn-cnt" style="display: block; margin-bottom: 1rem;">
+                    📚 GUIA PARA PAIS
+                </a>
+                <a href="#" class="btn-cnt" style="background: #ff9966;">
+                    🎓 DICAS EDUCATIVAS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO PARA PAIS -->
+        <section class="hero-pais" data-aos="zoom-in" data-aos-duration="1500">
+            <div class="hero-content">
+                <h1 class="hero-title">👨‍👩‍👧‍👦 ÁREA PARA PAIS E RESPONSÁVEIS</h1>
+                <p class="hero-subtitle">INFORMAÇÕES, CONTROLES E DICAS PARA UM USO SEGURO E EDUCATIVO</p>
+                <div class="hero-badges">
+                    <span class="badge">🛡️ 100% SEGURO</span>
+                    <span class="badge">🎓 EDUCATIVO</span>
+                    <span class="badge">🔒 SEM ANÚNCIOS</span>
+                    <span class="badge">👁️ SUPERVISÃO</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARTA DE BOAS-VINDAS -->
+        <section class="carta-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="carta-container">
+                <div class="carta-header">
+                    <span class="carta-icon">📜</span>
+                    <h2>CARTA AOS PAIS</h2>
+                </div>
+                <div class="carta-content">
+                    <p>ESTIMADOS PAIS E RESPONSÁVEIS,</p>
+                    <p>O <strong>ZOO KID</strong> FOI CRIADO COM O COMPROMISSO DE OFERECER UMA EXPERIÊNCIA DIGITAL SEGURA, EDUCATIVA E DIVERTIDA PARA AS CRIANÇAS.</p>
+                    <p>ENTENDEMOS A IMPORTÂNCIA DA SUPERVISÃO PARENTAL NO MUNDO DIGITAL E, POR ISSO, DESENVOLVEMOS ESTA ÁREA ESPECIAL COM TODAS AS INFORMAÇÕES NECESSÁRIAS PARA UM USO CONSCIENTE E BENÉFICO.</p>
+                    <div class="assinatura">
+                        <p>ATENCIOSAMENTE,</p>
+                        <p><strong>ZOO KID</strong> 🦁</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GRADE DE INFORMAÇÕES RÁPIDAS -->
+        <section class="info-rapida" data-aos="fade-up" data-aos-delay="300">
+            <h2 class="section-title">📋 INFORMAÇÕES RÁPIDAS</h2>
+            <div class="info-grid">
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="info-icon">🎯</div>
+                    <h3>FAIXA ETÁRIA</h3>
+                    <p>RECOMENDADO PARA CRIANÇAS DE 6 A 9 ANOS</p>
+                </div>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="info-icon">⏰</div>
+                    <h3>TEMPO SUGERIDO</h3>
+                    <p>ATÉ 30 MINUTOS DIÁRIOS DE JOGO</p>
+                </div>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="info-icon">💰</div>
+                    <h3>CUSTO</h3>
+                    <p>100% GRATUITO - SEM COMPRAS NO JOGO</p>
+                </div>
+                <div class="info-card" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="info-icon">🔒</div>
+                    <h3>PRIVACIDADE</h3>
+                    <p>SEM COLETA DE DADOS PESSOAIS</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTROLE PARENTAL -->
+        <section class="controle-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">⚙️ CONTROLE PARENTAL</h2>
+            <div class="controle-grid">
+                
+                <div class="controle-card" id="tempo" data-aos="fade-right" data-aos-delay="300">
+                    <div class="controle-header">
+                        <span class="controle-icon">⏰</span>
+                        <h3>CONTROLE DE TEMPO</h3>
+                    </div>
+                    <div class="controle-body">
+                        <p>RECOMENDAÇÕES PARA USO ADEQUADO:</p>
+                        <ul class="controle-list">
+                            <li>✅ LIMITE DE 30 MINUTOS POR DIA</li>
+                            <li>✅ INTERVALOS DE 15 MINUTOS</li>
+                            <li>✅ EVITAR USO ANTES DE DORMIR</li>
+                            <li>✅ NÃO SUBSTITUIR ATIVIDADES FÍSICAS</li>
+                        </ul>
+                        <div class="controle-timer">
+                            <h4>⏱️ TEMPORIZADOR SUGERIDO:</h4>
+                            <div class="timer-display">
+                                <span id="timer-minutes">30</span>
+                                <span>MINUTOS</span>
+                            </div>
+                            <input type="range" id="time-slider" min="10" max="60" value="30" step="5" class="timer-slider">
+                            <div class="timer-buttons">
+                                <button class="timer-btn" data-time="15">15 MIN</button>
+                                <button class="timer-btn" data-time="30">30 MIN</button>
+                                <button class="timer-btn" data-time="45">45 MIN</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controle-card" id="seguranca" data-aos="fade-left" data-aos-delay="400">
+                    <div class="controle-header">
+                        <span class="controle-icon">🛡️</span>
+                        <h3>SEGURANÇA DIGITAL</h3>
+                    </div>
+                    <div class="controle-body">
+                        <p>MEDIDAS DE SEGURANÇA IMPLEMENTADAS:</p>
+                        <ul class="seguranca-list">
+                            <li>✅ SITE 100% SEGURO HTTPS</li>
+                            <li>✅ NENHUM ANÚNCIO EXTERNO</li>
+                            <li>✅ SEM LINKS EXTERNOS</li>
+                            <li>✅ CONTEÚDO APENAS EDUCATIVO</li>
+                            <li>✅ SEM CHAT OU INTERAÇÃO ONLINE</li>
+                            <li>✅ DADOS SALVOS APENAS LOCALMENTE</li>
+                        </ul>
+                        <div class="seguranca-status">
+                            <div class="status-item status-ok">
+                                <span>🔒</span>
+                                <span>TODAS MEDIDAS ATIVAS</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="controle-card" id="configuracoes" data-aos="fade-right" data-aos-delay="500">
+                    <div class="controle-header">
+                        <span class="controle-icon">🔧</span>
+                        <h3>CONFIGURAÇÕES</h3>
+                    </div>
+                    <div class="controle-body">
+                        <p>AJUSTES DISPONÍVEIS PARA PERSONALIZAÇÃO:</p>
+                        <div class="config-list">
+                            <div class="config-item">
+                                <span class="config-label">🔊 VOLUME DO SOM</span>
+                                <div class="config-control">
+                                    <input type="range" min="0" max="100" value="80" class="config-slider">
+                                    <span class="config-value">80%</span>
+                                </div>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">🎮 DIFICULDADE DOS JOGOS</span>
+                                <select class="config-select">
+                                    <option value="facil">FÁCIL 🟢</option>
+                                    <option value="medio" selected>MÉDIO 🟡</option>
+                                    <option value="dificil">DIFÍCIL 🔴</option>
+                                </select>
+                            </div>
+                            <div class="config-item">
+                                <span class="config-label">💡 MODO DE DICAS</span>
+                                <div class="toggle-switch">
+                                    <input type="checkbox" id="hints-toggle" checked>
+                                    <label for="hints-toggle" class="toggle-slider"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="config-save-btn">💾 SALVAR CONFIGURAÇÕES</button>
+                    </div>
+                </div>
+
+                <div class="controle-card" id="relatorio" data-aos="fade-left" data-aos-delay="600">
+                    <div class="controle-header">
+                        <span class="controle-icon">📊</span>
+                        <h3>RELATÓRIO DE USO</h3>
+                    </div>
+                    <div class="controle-body">
+                        <p>ACOMPANHE O PROGRESSO DA CRIANÇA:</p>
+                        <div class="relatorio-stats" id="relatorio-stats">
+                            <!-- Estatísticas serão carregadas via JavaScript -->
+                            <div class="loading">📈 CARREGANDO ESTATÍSTICAS...</div>
+                        </div>
+                        <div class="relatorio-actions">
+                            <button class="relatorio-btn" id="view-report">👁️ VER RELATÓRIO COMPLETO</button>
+                            <button class="relatorio-btn" id="reset-stats">🔄 LIMPAR ESTATÍSTICAS</button>
+                            <button class="relatorio-btn" id="export-report">📤 EXPORTAR RELATÓRIO</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- BENEFÍCIOS EDUCATIVOS -->
+        <section class="beneficios-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">🎓 BENEFÍCIOS EDUCATIVOS</h2>
+            <div class="beneficios-container">
+                
+                <div class="beneficio-category" data-aos="zoom-in" data-aos-delay="300">
+                    <h3><span class="category-icon">🧠</span> DESENVOLVIMENTO COGNITIVO</h3>
+                    <div class="beneficios-list">
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">MEMÓRIA E CONCENTRAÇÃO</span>
+                          
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">RACIOCÍNIO LÓGICO</span>
+                        
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">RESOLUÇÃO DE PROBLEMAS</span>
+                           
+                        </div>
+                    </div>
+                </div>
+
+                <div class="beneficio-category" data-aos="zoom-in" data-aos-delay="400">
+                    <h3><span class="category-icon">👁️</span> HABILIDADES SENSORIAIS</h3>
+                    <div class="beneficios-list">
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">COORDENAÇÃO VISUOMOTORA</span>
+                           
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">RECONHECIMENTO DE SONS</span>
+                     
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">PERCEPÇÃO ESPACIAL</span>
+                        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="beneficio-category" data-aos="zoom-in" data-aos-delay="500">
+                    <h3><span class="category-icon">📚</span> CONHECIMENTO GERAL</h3>
+                    <div class="beneficios-list">
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">CONHECIMENTO SOBRE ANIMAIS</span>
+                           
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">MATEMÁTICA BÁSICA</span>
+                         
+                        </div>
+                        <div class="beneficio-item">
+                            <span class="check">✅</span>
+                            <span class="beneficio-text">VOCABULÁRIO</span>
+                           
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- DICAS PARA PAIS -->
+        <section class="dicas-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">💡 DICAS PARA UM USO SAUDÁVEL</h2>
+            <div class="dicas-grid">
+                
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="300">
+                    <div class="dica-icon">💬</div>
+                    <h3>DIÁLOGO</h3>
+                    <p>CONVERSE COM A CRIANÇA SOBRE OS ANIMAIS QUE ELA CONHECEU NO JOGO E ESTIMULE A CURIOSIDADE.</p>
+                </div>
+
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="400">
+                    <div class="dica-icon">🎲</div>
+                    <h3>INTERAÇÃO</h3>
+                    <p>JOGUE JUNTO COM A CRIANÇA. ISSO FORTALECE VÍNCULOS E PERMITE ORIENTAÇÃO DIRETA.</p>
+                </div>
+
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="500">
+                    <div class="dica-icon">📖</div>
+                    <h3>COMPLEMENTO</h3>
+                    <p>USE O JOGO COMO PONTO DE PARTIDA PARA LER LIVROS OU VISITAR ZOOLÓGICOS VIRTUAIS.</p>
+                </div>
+
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="600">
+                    <div class="dica-icon">⚖️</div>
+                    <h3>EQUILÍBRIO</h3>
+                    <p>COMBINE O TEMPO DE TELA COM ATIVIDADES FÍSICAS, BRINCADEIRAS AO AR LIVRE E LEITURA.</p>
+                </div>
+
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="700">
+                    <div class="dica-icon">👁️</div>
+                    <h3>SUPERVISÃO</h3>
+                    <p>MANTENHA O COMPUTADOR/TABLET EM ÁREA COMUM DA CASA PARA FACILITAR A SUPERVISÃO.</p>
+                </div>
+
+                <div class="dica-card" data-aos="flip-left" data-aos-delay="800">
+                    <div class="dica-icon">🎯</div>
+                    <h3>METAS</h3>
+                    <p>ESTABELEÇA METAS DE APRENDIZADO, COMO "APRENDER 5 NOVOS ANIMAIS HOJE".</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- PERGUNTAS FREQUENTES -->
+        <section class="faq-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">PERGUNTAS</h2>
+            <div class="faq-container">
+                
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="300">
+                    <button class="faq-question">
+                        <span>🔒 O SITE É REALMENTE SEGURO PARA CRIANÇAS?</span>
+                        <span class="faq-icon">➕</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>SIM! O ZOO KID FOI DESENVOLVIDO ESPECIALMENTE PARA CRIANÇAS:</p>
+                        <ul>
+                            <li>✅ SEM ANÚNCIOS EXTERNOS</li>
+                            <li>✅ SEM LINKS PARA SITES EXTERNOS</li>
+                            <li>✅ SEM COLETA DE DADOS PESSOAIS</li>
+                            <li>✅ SEM INTERAÇÃO ONLINE COM ESTRANHOS</li>
+                            <li>✅ CONTEÚDO 100% EDUCATIVO E APROPRIADO</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="400">
+                    <button class="faq-question">
+                        <span>💰 O SITE É GRATUITO? HÁ COMPRAS DENTRO DO JOGO?</span>
+                        <span class="faq-icon">➕</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O ZOO KID É COMPLETAMENTE GRATUITO E SEM QUALQUER TIPO DE COMPRA NO JOGO:</p>
+                        <ul>
+                            <li>✅ TODOS OS JOGOS SÃO GRATUITOS</li>
+                            <li>✅ NÃO HÁ MICROTRANSAÇÕES</li>
+                            <li>✅ NÃO HÁ ASSINATURAS</li>
+                            <li>✅ SEM ANÚNCIOS INTERSTICIAIS</li>
+                            <li>✅ PROJETO EDUCACIONAL SEM FINS LUCRATIVOS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="500">
+                    <button class="faq-question">
+                        <span>📱 PRECISO INSTALAR ALGUM APLICATIVO?</span>
+                        <span class="faq-icon">➕</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>NÃO! O ZOO KID FUNCIONA DIRETAMENTE NO NAVEGADOR:</p>
+                        <ul>
+                            <li>✅ NÃO REQUER INSTALAÇÃO</li>
+                            <li>✅ FUNCIONA EM QUALQUER DISPOSITIVO COM NAVEGADOR</li>
+                            <li>✅ NÃO OCUPA ESPAÇO NO DISPOSITIVO</li>
+                            <li>✅ ATUALIZAÇÕES AUTOMÁTICAS</li>
+                            <li>✅ FUNCIONA OFFLINE APÓS PRIMEIRO ACESSO</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="600">
+                    <button class="faq-question">
+                        <span>👶 PARA QUE IDADE O SITE É RECOMENDADO?</span>
+                        <span class="faq-icon">➕</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>O ZOO KID FOI DESENVOLVIDO ESPECIALMENTE PARA CRIANÇAS DE 6 A 9 ANOS:</p>
+                        <ul>
+                            <li>✅ INTERFACE SIMPLES E INTUITIVA</li>
+                            <li>✅ CONTEÚDO ADEQUADO PARA A FAIXA ETÁRIA</li>
+                            <li>✅ DIFICULDADE PROGRESSIVA</li>
+                            <li>✅ SUPORTE A LEITORES INICIANTES</li>
+                            <li>✅ CRIANÇAS MAIS NOVAS PODEM USAR COM SUPERVISÃO</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-aos="fade-up" data-aos-delay="700">
+                    <button class="faq-question">
+                        <span>💾 OS DADOS DA CRIANÇA SÃO SALVOS?</span>
+                        <span class="faq-icon">➕</span>
+                    </button>
+                    <div class="faq-answer">
+                        <p>OS DADOS SÃO SALVOS APENAS LOCALMENTE NO DISPOSITIVO:</p>
+                        <ul>
+                            <li>✅ NENHUM DADO É ENVIADO PARA SERVIDORES</li>
+                            <li>✅ INFORMAÇÕES FICAM APENAS NO SEU DISPOSITIVO</li>
+                            <li>✅ PODE SER EXCLUÍDO A QUALQUER MOMENTO</li>
+                            <li>✅ SEM CRIÇÃO DE CONTA OU CADASTRO</li>
+                            <li>✅ TOTALMENTE ANÔNIMO</li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CONTATO E RECURSOS -->
+        <section class="contato-section" data-aos="fade-up" data-aos-delay="200">
+            <h2 class="section-title">📞 CONTATO E RECURSOS</h2>
+            <div class="contato-container">
+                
+                <div class="contato-card" data-aos="zoom-in" data-aos-delay="300">
+                    <h3><span class="contato-icon">📧</span> CONTATO</h3>
+                    <p>DÚVIDAS OU SUGESTÕES:</p>
+                    <div class="contato-info">
+                        <p>📧 EMAIL: rainer25santos@gmail.com</p>
+                        <p>🌐 SITE: https://zoo-kid.vercel.app/</p>
+                    </div>
+                </div>
+
+                <div class="contato-card" data-aos="zoom-in" data-aos-delay="400">
+                    <h3><span class="contato-icon">📚</span> RECURSOS ÚTEIS</h3>
+                    <p>MATERIAIS PARA DOWNLOAD:</p>
+                    <div class="recursos-links">
+                        <a href="#" class="recurso-link">📄 GUIA PARA PAIS (PDF)</a>
+                        <a href="#" class="recurso-link">🎯 ATIVIDADES COMPLEMENTARES</a>
+                        <a href="#" class="recurso-link">🦁 FICHAS DOS ANIMAIS</a>
+                    </div>
+                </div>
+
+                <div class="contato-card" data-aos="zoom-in" data-aos-delay="500">
+                    <h3><span class="contato-icon">🔧</span> CONFIGURAÇÕES RÁPIDAS</h3>
+                    <p>ACESSE AS CONFIGURAÇÕES COMPLETAS:</p>
+                    <a href="configuracoes.html" class="config-link">⚙️ IR PARA CONFIGURAÇÕES COMPLETAS</a>
+                    <p class="config-note">* CONFIGURE SOM, DIFICULDADE E PREFERÊNCIAS</p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- CALL TO ACTION -->
+        <section class="cta-section" data-aos="zoom-in" data-aos-delay="200">
+            <div class="cta-content">
+                <h2>PRONTO PARA UMA EXPERIÊNCIA SEGURA E EDUCATIVA?</h2>
+                <p>EXPLORE O ZOO KID JUNTO COM SEU FILHO E DESCUBRA UM MUNDO DE APRENDIZADO DIVERTIDO!</p>
+                <div class="cta-buttons">
+                    <button onclick="window.location.href='index.html'" class="cta-btn primary">
+                        🎮 EXPERIMENTAR OS JOGOS
+                    </button>
+                    <button onclick="window.location.href='configuracoes.html'" class="cta-btn secondary">
+                        ⚙️ CONFIGURAR CONTROLES
+                    </button>
+                    <button onclick="window.print()" class="cta-btn tertiary">
+                        🖨️ IMPRIMIR ESTAS INFORMAÇÕES
+                    </button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="pais.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Carrega configurações do usuário
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConfig = localStorage.getItem('zookid_config');
+            if (savedConfig) {
+                try {
+                    const config = JSON.parse(savedConfig);
+                    const userAvatar = document.getElementById('user-avatar');
+                    const userName = document.getElementById('user-name');
+                    
+                    if (userAvatar) userAvatar.textContent = config.profile.avatar || '🦁';
+                    if (userName) userName.textContent = config.profile.name || 'JOGADOR';
+                } catch (e) {
+                    console.log('Usando configurações padrão');
+                }
+            }
+        });
+    </script>
+</body>
+</html>
