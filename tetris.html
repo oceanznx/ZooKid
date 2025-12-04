@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Animal - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="tetris.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+<style>
+    
+    #tetris-board, 
+    #tetris-board *,
+    .tetris-cell {
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    
+   
+    .tetris-cell {
+        transform: none !important;
+    }
+    
+ 
+    #tetris-board {
+        width: fit-content !important;
+        height: fit-content !important;
+    }
+</style>
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <a href="index.html">🏠 Início</a>
+            <a href="ranking.html">🏆 Ranking</a>
+            <a href="#how-to">🎮 Como Jogar</a>
+        </div>
+    </div>
+
+    <main>
+        <section class="banner tetris-banner">
+            <h2 data-aos="fade-down" data-aos-duration="1500">🧩 TETRIS ANIMAL</h2>
+            <p data-aos="fade-down" data-aos-duration="2000">AJUDE OS ANIMAIS A ENCAIXAREM NO ZOOLÓGICO!</p>
+            
+            <div class="tetris-container">
+                <!-- Painel de Controle -->
+                <div class="tetris-sidebar">
+                    <div class="score-panel">
+                        <div class="score-item">
+                            <span class="score-label">PONTOS</span>
+                            <span id="score" class="score-value">0</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">NÍVEL</span>
+                            <span id="level" class="score-value">1</span>
+                        </div>
+                        <div class="score-item">
+                            <span class="score-label">LINHAS</span>
+                            <span id="lines" class="score-value">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Próxima Peça -->
+                    <div class="next-piece-container">
+                        <h3>PRÓXIMO ANIMAL:</h3>
+                        <div id="next-piece" class="next-piece">
+                            <!-- Próxima peça será renderizada aqui -->
+                        </div>
+                    </div>
+                    
+                    <!-- Controles -->
+                    <div class="controls-info">
+                        <h3>🎮 CONTROLES:</h3>
+                        <div class="controls-list">
+                            <div class="control-item">
+                                <span class="control-key">← →</span>
+                                <span>Mover</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="control-key">↑</span>
+                                <span>Girar</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="control-key">↓</span>
+                                <span>Acelerar</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="control-key">Espaço</span>
+                                <span>Queda Rápida</span>
+                            </div>
+                            <div class="control-item">
+                                <span class="control-key">P</span>
+                                <span>Pausar</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+                <!-- Área do Jogo -->
+                <div class="game-area">
+                    <div id="tetris-board" class="tetris-board">
+                        <!-- O tabuleiro será gerado por JavaScript -->
+                    </div>
+                    
+                    <!-- Controles Móveis -->
+                    <div class="tetris-mobile-controls">
+                        <div class="mobile-row">
+                            <button class="mobile-btn rotate-btn" data-action="rotate">
+                                <span class="btn-emoji">🔄</span>
+                                <span class="btn-text">Girar</span>
+                            </button>
+                        </div>
+                        <div class="mobile-row">
+                            <button class="mobile-btn left-btn" data-action="left">
+                                <span class="btn-emoji">⬅️</span>
+                                <span class="btn-text">Esquerda</span>
+                            </button>
+                            <button class="mobile-btn down-btn" data-action="down">
+                                <span class="btn-emoji">⬇️</span>
+                                <span class="btn-text">Baixo</span>
+                            </button>
+                            <button class="mobile-btn right-btn" data-action="right">
+                                <span class="btn-emoji">➡️</span>
+                                <span class="btn-text">Direita</span>
+                            </button>
+                        </div>
+                        <div class="mobile-row">
+                            <button class="mobile-btn drop-btn" data-action="drop">
+                                <span class="btn-emoji">💥</span>
+                                <span class="btn-text">Queda Rápida</span>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Mensagem do Jogo -->
+                    <div id="game-message" class="tetris-message">
+                        PRESSIONE QUALQUER TECLA PARA COMEÇAR!
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Botões de Controle -->
+            <div class="game-buttons">
+                <button id="start-btn" class="game-btn">
+                    <span class="btn-emoji">▶️</span>
+                    <span class="btn-text">Iniciar</span>
+                </button>
+                <button id="pause-btn" class="game-btn">
+                    <span class="btn-emoji">⏸️</span>
+                    <span class="btn-text">Pausar</span>
+                </button>
+                <button id="restart-btn" class="game-btn">
+                    <span class="btn-emoji">🔄</span>
+                    <span class="btn-text">Reiniciar</span>
+                </button>
+                <button onclick="window.location.href='index.html'" class="game-btn">
+                    <span class="btn-emoji">🏠</span>
+                    <span class="btn-text">Voltar</span>
+                </button>
+            </div>
+        </section>
+
+        
+
+        <!-- Instruções -->
+        <section class="instructions" id="how-to">
+            <div class="instructions-content">
+                <h3>📚 COMO JOGAR TETRIS ANIMAL:</h3>
+                <div class="instructions-grid">
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">🎯</div>
+                        <h4>OBJETIVO</h4>
+                        <p>Encaixe as peças de animais para formar linhas completas</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">🧩</div>
+                        <h4>PEÇAS</h4>
+                        <p>Cada peça representa um animal diferente do zoológico</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">⭐</div>
+                        <h4>PONTOS</h4>
+                        <p>Ganhe pontos completando linhas sem deixar espaços</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">🚨</div>
+                        <h4>GAME OVER</h4>
+                        <p>O jogo acaba quando as peças chegarem ao topo</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="tetris.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>
