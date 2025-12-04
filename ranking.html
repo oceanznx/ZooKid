@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ranking - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .ranking-container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: rgba(46, 46, 46, 0.9);
+            border-radius: 20px;
+            border: 3px solid #f3cb2b;
+        }
+        
+        .ranking-filters {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+            border: 2px solid #f3cb2b;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        
+        .filter-btn.active {
+            background: #f3cb2b;
+            color: #000;
+        }
+        
+        .ranking-table {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            overflow: hidden;
+            margin-top: 1rem;
+        }
+        
+        .ranking-header {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+            background: rgba(243, 203, 43, 0.2);
+            padding: 1rem;
+            font-weight: bold;
+            color: #f3cb2b;
+        }
+        
+        .ranking-row {
+            display: grid;
+            grid-template-columns: 1fr 2fr 2fr 1fr 1fr;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+        
+        .ranking-row.top-three {
+            background: rgba(243, 203, 43, 0.1);
+        }
+        
+        .ranking-row:nth-child(even) {
+            background: rgba(255, 255, 255, 0.02);
+        }
+        
+        @media (max-width: 768px) {
+            .ranking-header, .ranking-row {
+                grid-template-columns: 1fr 2fr 1fr;
+                font-size: 0.9rem;
+            }
+            
+            .ranking-header div:nth-child(4),
+            .ranking-header div:nth-child(5),
+            .ranking-row div:nth-child(4),
+            .ranking-row div:nth-child(5) {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="title">ZOO<span>KID</span></h1>
+        <nav>
+            <a href="index.html">🏠 Voltar</a>
+        </nav>
+    </header>
+    
+    <main>
+        <section class="banner">
+            <h2>🏆 RANKING GLOBAL</h2>
+            <p>Veja os melhores jogadores do ZooKid!</p>
+            
+            <div class="ranking-container">
+                <div class="ranking-filters">
+                    <button class="filter-btn active" onclick="showAllRankings()">TODOS OS JOGOS</button>
+                    <button class="filter-btn" onclick="showGameRanking('Quiz dos Sons')">🔊 QUIZ</button>
+                    <button class="filter-btn" onclick="showGameRanking('Cobrinha')">🐍 COBRINHA</button>
+                    <button class="filter-btn" onclick="showGameRanking('Contagem Animal')">🧮 CONTAGEM</button>
+                    <button class="filter-btn" onclick="showGameRanking('Memória Animal')">🧩 MEMÓRIA</button>
+                </div>
+                
+                <div id="ranking-display">
+                    <!-- Ranking será carregado aqui -->
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <button onclick="clearRanking()" style="background: #dc3545; color: white; border: none; padding: 0.8rem 1.5rem; border-radius: 20px; cursor: pointer;">
+                        🗑️ Limpar Ranking
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <script src="ranking.js"></script>
+    <script>
+        function showAllRankings() {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            displayRanking('ranking-display');
+        }
+        
+        function showGameRanking(gameName) {
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            displayRanking('ranking-display', gameName);
+        }
+        
+        function clearRanking() {
+            if (confirm('Tem certeza que deseja limpar todo o ranking?')) {
+                localStorage.removeItem('zookid_ranking');
+                displayRanking('ranking-display');
+                alert('Ranking limpo com sucesso!');
+            }
+        }
+        
+        // Carrega o ranking geral ao abrir a página
+        document.addEventListener('DOMContentLoaded', () => {
+            displayRanking('ranking-display');
+        });
+    </script>
+</body>
+</html>

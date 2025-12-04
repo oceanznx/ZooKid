@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre o ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="sobre.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="search-container">
+            <form action="#" method="get">
+                <input type="text" placeholder="BUSCAR JOGOS..." name="search" class="search-input">
+                <button type="submit" class="search-button">&#128269;</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <div class="menu-user">
+                <div class="user-avatar" id="user-avatar">🦁</div>
+                <div class="user-info">
+                    <h4 id="user-name">JOGADOR</h4>
+                    <p>NÍVEL: EXPLORADOR</p>
+                </div>
+            </div>
+            
+            <div class="menu-category">NAVEGAÇÃO</div>
+            <a href="index.html">INÍCIO</a>
+            <a href="ranking.html">🏆 RANKING</a>
+            <a href="configuracoes.html">⚙️ CONFIGURAÇÕES</a>
+            <a href="sobre.html" class="active">ℹ️ SOBRE</a>
+            
+            <div class="menu-category">JOGOS</div>
+            <a href="memory.html">🧠 MEMÓRIA ANIMAL</a>
+            <a href="quiz.html">🔊 QUIZ DOS SONS</a>
+            <a href="count.html">🧮 CONTAGEM</a>
+            <a href="snake.html">🐍 COBRINHA</a>
+            <a href="labirinto.html">🦁 LABIRINTO</a>
+            
+            <div style="padding: 2rem; text-align: center;">
+                <a href="#" class="btn-cnt" style="display: block; margin-bottom: 1rem;">
+                    🏆 DESAFIO DO DIA
+                </a>
+                <a href="#" class="btn-cnt" style="background: #ff9966;">
+                    🎉 FESTA DOS ANIMAIS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section" data-aos="zoom-in" data-aos-duration="2000">
+            <div class="hero-content">
+                <div class="logo-container">
+                    <span class="hero-emoji">🦁</span>
+                    <h1 class="hero-title">ZOO<span>KID</span></h1>
+                </div>
+                <p class="hero-tagline">DIVERSÃO E APRENDIZADO PARA CRIANÇAS!</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">JOGOS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">ANIMAIS</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">GRATUITO</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">👨‍👩‍👧‍👦</span>
+                        <span class="stat-label">FAMÍLIA</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MISSÃO SECTION -->
+        <section class="section mission-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-header">
+                <h2><span class="section-icon">🎯</span> NOSSA MISSÃO</h2>
+            </div>
+            <div class="section-content">
+                <p class="mission-text">O <strong>ZOO KID</strong> FOI CRIADO COM O OBJETIVO DE UNIR DIVERSÃO E APRENDIZADO, PROPORCIONANDO UMA EXPERIÊNCIA EDUCATIVA E SEGURA PARA CRIANÇAS.</p>
+                
+                <div class="mission-grid">
+                    <div class="mission-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="mission-icon">🧠</div>
+                        <h3>DESENVOLVIMENTO COGNITIVO</h3>
+                        <p>ESTIMULAR O RACIOCÍNIO LÓGICO, MEMÓRIA E CONCENTRAÇÃO ATRAVÉS DE JOGOS EDUCATIVOS.</p>
+                    </div>
+                    
+                    <div class="mission-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="mission-icon">🐾</div>
+                        <h3>CONEXÃO COM A NATUREZA</h3>
+                        <p>APRESENTAR DIVERSOS ANIMAIS E SEUS HABITATS, DESPERTANDO O INTERESSE PELA FAUNA.</p>
+                    </div>
+                    
+                    <div class="mission-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="mission-icon">🎮</div>
+                        <h3>DIVERSÃO SAUDÁVEL</h3>
+                        <p>OFERECER UMA ALTERNATIVA DIVERTIDA E SEGURA AO USO EXCESSIVO DE DISPOSITIVOS DIGITAIS.</p>
+                    </div>
+                    
+                    <div class="mission-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="mission-icon">👨‍👩‍👧‍👦</div>
+                        <h3>INTERAÇÃO FAMILIAR</h3>
+                        <p>PROMOVER MOMENTOS DE INTERAÇÃO ENTRE PAIS E FILHOS ATRAVÉS DOS JOGOS.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- JOGOS SECTION -->
+        <section class="section games-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-header">
+                <h2><span class="section-icon">🎮</span> NOSSOS JOGOS</h2>
+            </div>
+            <div class="section-content">
+                <p class="section-intro">CONHEÇA TODOS OS JOGOS DISPONÍVEIS NO ZOO KID:</p>
+                
+                <div class="games-grid">
+                    <div class="game-card" data-aos="flip-left" data-aos-delay="300">
+                        <div class="game-card-header">
+                            <span class="game-emoji">🧠</span>
+                            <h3>MEMÓRIA ANIMAL</h3>
+                        </div>
+                        <div class="game-card-body">
+                            <p>ENCONTRE OS PARES DE ANIMAIS IDÊNTICOS E DESENVOLVA SUA MEMÓRIA VISUAL.</p>
+                            <div class="game-features">
+                                <span class="feature">🧩 3 NÍVEIS DE DIFICULDADE</span>
+                                <span class="feature">🐾 24 ANIMAIS DIFERENTES</span>
+                                <span class="feature">🏆 SISTEMA DE PONTUAÇÃO</span>
+                            </div>
+                            <a href="memory.html" class="game-btn">JOGAR AGORA ▶</a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" data-aos="flip-left" data-aos-delay="400">
+                        <div class="game-card-header">
+                            <span class="game-emoji">🔊</span>
+                            <h3>QUIZ DOS SONS</h3>
+                        </div>
+                        <div class="game-card-body">
+                            <p>ADIVINHE QUAL ANIMAL FEZ O SOM E APRENDA SOBRE A COMUNICAÇÃO ANIMAL.</p>
+                            <div class="game-features">
+                                <span class="feature">🔊 30+ SONS DE ANIMAIS</span>
+                                <span class="feature">🌍 DIVERSOS HABITATS</span>
+                                <span class="feature">⭐ SISTEMA DE ESTRELAS</span>
+                            </div>
+                            <a href="quiz.html" class="game-btn">JOGAR AGORA ▶</a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" data-aos="flip-left" data-aos-delay="500">
+                        <div class="game-card-header">
+                            <span class="game-emoji">🧮</span>
+                            <h3>CONTAGEM ANIMAL</h3>
+                        </div>
+                        <div class="game-card-body">
+                            <p>PRATIQUE MATEMÁTICA BÁSICA CONTANDO ANIMAIS EM DIFERENTES CENÁRIOS.</p>
+                            <div class="game-features">
+                                <span class="feature">➕ OPERAÇÕES BÁSICAS</span>
+                                <span class="feature">🐘 ANIMAIS DIVERTIDOS</span>
+                                <span class="feature">📊 PROGRESSÃO DE DIFICULDADE</span>
+                            </div>
+                            <a href="count.html" class="game-btn">JOGAR AGORA ▶</a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" data-aos="flip-left" data-aos-delay="600">
+                        <div class="game-card-header">
+                            <span class="game-emoji">🐍</span>
+                            <h3>JOGO DA COBRINHA</h3>
+                        </div>
+                        <div class="game-card-body">
+                            <p>CLÁSSICO JOGO DA COBRINHA COM TEMÁTICA ANIMAL PARA DESENVOLVER COORDENAÇÃO.</p>
+                            <div class="game-features">
+                                <span class="feature">🎯 CONTROLES SIMPLES</span>
+                                <span class="feature">🍎 FRUTAS TEMÁTICAS</span>
+                                <span class="feature">🏆 RANKING GLOBAL</span>
+                            </div>
+                            <a href="snake.html" class="game-btn">JOGAR AGORA ▶</a>
+                        </div>
+                    </div>
+                    
+                    <div class="game-card" data-aos="flip-left" data-aos-delay="700">
+                        <div class="game-card-header">
+                            <span class="game-emoji">🦁</span>
+                            <h3>LABIRINTO DO ZOOLÓGICO</h3>
+                        </div>
+                        <div class="game-card-body">
+                            <p>AJUDE OS ANIMAIS A ENCONTRAR SUA COMIDA ATRAVÉS DE DESAFIANTES LABIRINTOS.</p>
+                            <div class="game-features">
+                                <span class="feature">🧭 12 NÍVEIS PROGRESSIVOS</span>
+                                <span class="feature">🦒 8 ANIMAIS DIFERENTES</span>
+                                <span class="feature">💡 SISTEMA DE DICAS</span>
+                            </div>
+                            <a href="labirinto.html" class="game-btn">JOGAR AGORA ▶</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CARACTERÍSTICAS SECTION -->
+        <section class="section features-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-header">
+                <h2><span class="section-icon">✅</span> PRINCIPAIS CARACTERÍSTICAS</h2>
+            </div>
+            <div class="section-content">
+                <div class="features-container">
+                    <div class="features-grid">
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="300">
+                            <span class="feature-icon">🛡️</span>
+                            <div class="feature-content">
+                                <h3>100% SEGURO</h3>
+                                <p>SITE TOTALMENTE SEGURO PARA CRIANÇAS, SEM CONTEÚDO INAPROPRIADO OU ANÚNCIOS.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-aos="fade-left" data-aos-delay="400">
+                            <span class="feature-icon">📚</span>
+                            <div class="feature-content">
+                                <h3>EDUCATIVO</h3>
+                                <p>CONTEÚDO ALINHADO COM OS PRINCÍPIOS DA EDUCAÇÃO INFANTIL E APRENDIZADO LÚDICO.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="500">
+                            <span class="feature-icon">🎨</span>
+                            <div class="feature-content">
+                                <h3>DESIGN AMIGÁVEL</h3>
+                                <p>INTERFACE COLORIDA, INTUITIVA E ADEQUADA PARA AS CRIANÇAS</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-aos="fade-left" data-aos-delay="600">
+                            <span class="feature-icon">⚡</span>
+                            <div class="feature-content">
+                                <h3>PERFORMANCE</h3>
+                                <p>JOGOS OTIMIZADOS PARA FUNCIONAR BEM EM TODOS OS DISPOSITIVOS E NAVEGADORES.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-aos="fade-right" data-aos-delay="700">
+                            <span class="feature-icon">💾</span>
+                            <div class="feature-content">
+                                <h3>SALVAMENTO LOCAL</h3>
+                                <p>PROGRESSO SALVO AUTOMATICAMENTE NO NAVEGADOR, SEM NECESSIDADE DE LOGIN.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item" data-aos="fade-left" data-aos-delay="800">
+                            <span class="feature-icon">📱</span>
+                            <div class="feature-content">
+                                <h3>RESPONSIVO</h3>
+                                <p>FUNCIONA PERFEITAMENTE EM COMPUTADORES, TABLETS E CELULARES.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PARA PAIS SECTION -->
+        <section class="section parents-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-header">
+                <h2><span class="section-icon">👨‍👩‍👧‍👦</span> INFORMAÇÕES PARA PAIS E EDUCADORES</h2>
+            </div>
+            <div class="section-content">
+                <div class="parents-grid">
+                    <div class="parents-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="parents-card-header">
+                            <span class="parents-icon">🕒</span>
+                            <h3>CONTROLE DE TEMPO</h3>
+                        </div>
+                        <div class="parents-card-body">
+                            <p>RECOMENDAMOS:</p>
+                            <ul class="parents-list">
+                                <li>⏰ 30 MINUTOS DIÁRIOS DE JOGO</li>
+                                <li>🔄 INTERVALOS A CADA 15 MINUTOS</li>
+                                <li>👀 SUPERVISÃO PARA CRIANÇAS MENORES</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="parents-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="parents-card-header">
+                            <span class="parents-icon">🎯</span>
+                            <h3>BENEFÍCIOS EDUCACIONAIS</h3>
+                        </div>
+                        <div class="parents-card-body">
+                            <p>O ZOO KID AJUDA NO DESENVOLVIMENTO DE:</p>
+                            <ul class="parents-list">
+                                <li>🧠 HABILIDADES COGNITIVAS</li>
+                                <li>👁️ COORDENAÇÃO VISUOMOTORA</li>
+                                <li>🤔 RACIOCÍNIO LÓGICO</li>
+                                <li>🎨 CRIATIVIDADE</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="parents-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="parents-card-header">
+                            <span class="parents-icon">🔧</span>
+                            <h3>CONTROLE PARENTAL</h3>
+                        </div>
+                        <div class="parents-card-body">
+                            <p>RECURSOS DISPONÍVEIS:</p>
+                            <ul class="parents-list">
+                                <li>⚙️ CONFIGURAÇÕES PERSONALIZÁVEIS</li>
+                                <li>🔇 CONTROLE DE VOLUME</li>
+                                <li>📊 MONITORAMENTO DE PROGRESSO</li>
+                                <li>🔄 LIMITE DE TEMPO (SUGESTÃO)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="parents-advice" data-aos="fade-up" data-aos-delay="600">
+                    <h3>💡 DICAS PARA USO ADEQUADO:</h3>
+                    <div class="advice-grid">
+                        <div class="advice-item">
+                            <span class="advice-icon">💬</span>
+                            <p>CONVERSE COM SEU FILHO SOBRE OS ANIMAIS QUE ELE CONHECEU NO JOGO</p>
+                        </div>
+                        <div class="advice-item">
+                            <span class="advice-icon">🎲</span>
+                            <p>JOGUE JUNTO COM A CRIANÇA PARA FORTALECER VÍNCULOS FAMILIARES</p>
+                        </div>
+                        <div class="advice-item">
+                            <span class="advice-icon">📖</span>
+                            <p>USE O JOGO COMO PONTO DE PARTIDA PARA APRENDER MAIS SOBRE ANIMAIS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CRÉDITOS SECTION -->
+        <section class="section credits-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="section-header">
+                <h2><span class="section-icon">🌟</span> CRÉDITOS E INFORMAÇÕES TÉCNICAS</h2>
+            </div>
+            <div class="section-content">
+                <div class="credits-grid">
+                    <div class="credit-card" data-aos="fade-right" data-aos-delay="300">
+                        <h3>🎨 DESIGN E DESENVOLVIMENTO</h3>
+                        <p>PROJETO DESENVOLVIDO COM FOCO EM USABILIDADE E EXPERIÊNCIA DA CRIANÇA.</p>
+                        <div class="tech-stack">
+                            <span class="tech-item">HTML5</span>
+                            <span class="tech-item">CSS3</span>
+                            <span class="tech-item">JAVASCRIPT</span>
+                            <span class="tech-item">EMOJIS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="credit-card" data-aos="fade-left" data-aos-delay="400">
+                        <h3>📚 RECURSOS EDUCATIVOS</h3>
+                        <p>CONTEÚDO BASEADO EM MATERIAIS EDUCATIVOS SOBRE FAUNA E DESENVOLVIMENTO INFANTIL.</p>
+                        <div class="resources-list">
+                            <span class="resource">🐾 ENCICLOPÉDIAS INFANTIS</span>
+                            <span class="resource">🎓 MATERIAIS PEDAGÓGICOS</span>
+                            <span class="resource">📖 LIVROS SOBRE ANIMAIS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="credit-card" data-aos="fade-right" data-aos-delay="500">
+                        <h3>🆘 SUPORTE E CONTATO</h3>
+                        <p>EM CASO DE DÚVIDAS OU SUGESTÕES, ENTRE EM CONTATO:</p>
+                        <div class="contact-info">
+                            <p>📧 EMAIL: rainer25santos@gmail.com</p>
+                            <p>🌐 SITE: https://zoo-kid.vercel.app/</p>
+                            <p>💡 VERSÃO: 1.0.0</p>
+                        </div>
+                    </div>
+                    
+                    <div class="credit-card" data-aos="fade-left" data-aos-delay="600">
+                        <h3>⚖️ TERMOS DE USO</h3>
+                        <p>O ZOO KID É UM PROJETO EDUCACIONAL GRATUITO:</p>
+                        <div class="terms-list">
+                            <p>✅ USO PESSOAL E EDUCATIVO</p>
+                            <p>✅ SEM FINS LUCRATIVOS</p>
+                            <p>✅ SEM COLETA DE DADOS</p>
+                            <p>✅ CÓDIGO ABERTO</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER SECTION -->
+        <section class="footer-section" data-aos="fade-up" data-aos-delay="200">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="footer-emoji">🦁</span>
+                    <h2>ZOO<span>KID</span></h2>
+                    <p>DIVERSÃO QUE ENSINA, ENSINO QUE DIVERTE!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="index.html" class="footer-link">🏠 INÍCIO</a>
+                    <a href="ranking.html" class="footer-link">🏆 RANKING</a>
+                    <a href="configuracoes.html" class="footer-link">⚙️ CONFIGURAÇÕES</a>
+                    <a href="sobre.html" class="footer-link active">ℹ️ SOBRE</a>
+                </div>
+                
+                <div class="footer-animals">
+                    <span class="animal-emoji">🦁</span>
+                    <span class="animal-emoji">🐘</span>
+                    <span class="animal-emoji">🦒</span>
+                    <span class="animal-emoji">🐒</span>
+                    <span class="animal-emoji">🐼</span>
+                    <span class="animal-emoji">🐧</span>
+                    <span class="animal-emoji">🐇</span>
+                    <span class="animal-emoji">🐢</span>
+                </div>
+                
+                <div class="footer-copyright">
+                    <p>© 2026 ZOO KID - TODOS OS DIREITOS RESERVADOS</p>
+                    <p>PROJETO DESENVOLVIDO COM ❤️ PARA CRIANÇAS</p>
+                </div>
+                
+                <button onclick="window.location.href='index.html'" class="back-home-btn">
+                    🏠 VOLTAR PARA O INÍCIO
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="sobre.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+        
+        // Carrega configurações do usuário
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedConfig = localStorage.getItem('zookid_config');
+            if (savedConfig) {
+                try {
+                    const config = JSON.parse(savedConfig);
+                    const userAvatar = document.getElementById('user-avatar');
+                    const userName = document.getElementById('user-name');
+                    
+                    if (userAvatar) userAvatar.textContent = config.profile.avatar || '🦁';
+                    if (userName) userName.textContent = config.profile.name || 'JOGADOR';
+                } catch (e) {
+                    console.log('Usando configurações padrão');
+                }
+            }
+        });
+    </script>
+</body>
+</html>

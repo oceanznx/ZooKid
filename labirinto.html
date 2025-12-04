@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Labirinto do Zoológico - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="labirinto.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="search-container">
+            <form action="#" method="get">
+                <input type="text" placeholder="Buscar jogos..." name="search" class="search-input">
+                <button type="submit" class="search-button">&#128269;</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <a href="index.html">🏠 Início</a>
+            <a href="#levels">📊 Níveis</a>
+            <a href="#how-to">🎮 Como Jogar</a>
+            <a href="#animals">🦁 Animais</a>
+            <a href="ranking.html" target="_blank">🏆 Ranking</a>
+        </div>
+    </div>
+
+    <main>
+        <section data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="banner labirinto-banner">
+            <h2 data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000">🦁 LABIRINTO DO ZOOLÓGICO</h2>
+            <p data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">AJUDE O ANIMAL A ENCONTRAR SUA COMIDA NO ZOOLÓGICO!</p>
+            
+            <div class="game-container">
+                <!-- Painel de Informações -->
+                <div class="info-panel">
+                    <div class="score-board">
+                        <div>NÍVEL: <span id="level">1</span></div>
+                        <div>MOVIMENTOS: <span id="moves">0</span></div>
+                        <div>ESTRELAS: <span id="stars">0</span>/3</div>
+                    </div>
+                    
+                    <div class="animal-info">
+                        <div class="current-animal">
+                            <div id="current-animal-img" class="animal-emoji-display">🦁</div>
+                            <span id="current-animal-name">Leão</span>
+                        </div>
+                        <div class="arrow">➡️</div>
+                        <div class="target-food">
+                            <div id="target-food-img" class="food-emoji-display">🥩</div>
+                            <span id="target-food-name">Carne</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Área do Jogo -->
+                <div class="game-area">
+                    <div class="maze-container">
+                        <div id="maze" class="maze">
+                            <!-- O labirinto será gerado por JavaScript -->
+                        </div>
+                        
+                        <div class="instructions">
+                            <h3>🎯 COMO JOGAR:</h3>
+                            <p>Use as <strong>SETAS DO TECLADO</strong> ou os <strong>BOTÕES</strong> abaixo para mover o animal</p>
+                            <p>Leve o animal <span id="current-animal-emoji">🦁</span> até sua comida <span id="target-food-emoji">🥩</span> sem bater nas paredes!</p>
+                            <p class="controls-hint">🎮 Controles: Setas (↑↓←→) ou WASD</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Controles Móveis -->
+                    <div class="mobile-controls">
+                        <button class="control-btn up" data-direction="up" title="Mover para Cima">
+                            <span class="control-emoji">⬆️</span>
+                            <span class="control-text">Cima</span>
+                        </button>
+                        <div class="horizontal-controls">
+                            <button class="control-btn left" data-direction="left" title="Mover para Esquerda">
+                                <span class="control-emoji">⬅️</span>
+                                <span class="control-text">Esquerda</span>
+                            </button>
+                            <button class="control-btn center" title="Clique para Iniciar" id="start-mobile-btn">
+                                <span class="control-emoji">🎮</span>
+                                <span class="control-text">Iniciar</span>
+                            </button>
+                            <button class="control-btn right" data-direction="right" title="Mover para Direita">
+                                <span class="control-emoji">➡️</span>
+                                <span class="control-text">Direita</span>
+                            </button>
+                        </div>
+                        <button class="control-btn down" data-direction="down" title="Mover para Baixo">
+                            <span class="control-emoji">⬇️</span>
+                            <span class="control-text">Baixo</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Controles do Jogo -->
+                <div class="game-controls">
+                    <button id="restart-btn" class="game-btn">
+                        <span class="btn-emoji"></span>
+                        <span class="btn-text">Reiniciar</span>
+                    </button>
+                    <button id="hint-btn" class="game-btn">
+                        <span class="btn-emoji">💡</span>
+                        <span class="btn-text">Dica</span>
+                    </button>
+                    <button id="sound-btn" class="game-btn">
+                        <span class="btn-emoji"></span>
+                        <span class="btn-text">Som</span>
+                    </button>
+                    <button id="next-level-btn" class="game-btn" style="display:none;">
+                        <span class="btn-emoji">▶️</span>
+                        <span class="btn-text">Próximo</span>
+                    </button>
+                    <button onclick="window.location.href='index.html'" class="game-btn">
+                        <span class="btn-emoji"></span>
+                        <span class="btn-text">Voltar</span>
+                    </button>
+                </div>
+                
+                <!-- Mensagens do Jogo -->
+                <div id="message" class="game-message">
+                    <span class="message-emoji">🎮</span>
+                    <span class="message-text">Use as setas para começar!</span>
+                </div>
+                
+                <!-- Níveis Disponíveis -->
+                <div class="levels-container" id="levels">
+                    <h3>📊 SELECIONE UM NÍVEL:</h3>
+                    <div class="levels-grid" id="levels-grid">
+                        <!-- Níveis serão gerados por JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Seletor de Animal (Opcional) -->
+                <div class="animal-selector" id="animal-selector" style="display: none;">
+                    <h3>🦁 ESCOLHA SEU ANIMAL:</h3>
+                    <div class="animals-grid" id="animals-grid">
+                        <!-- Animais serão carregados por JavaScript -->
+                    </div>
+                    <button class="close-selector-btn" onclick="document.getElementById('animal-selector').style.display='none'">
+                        ✕ Fechar
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Instruções Detalhadas -->
+        <section class="instructions-detailed" id="how-to">
+            <div class="instructions-content">
+                <h3>📚 COMO JOGAR DETALHADO:</h3>
+                <div class="instructions-grid">
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">🎯</div>
+                        <h4>OBJETIVO</h4>
+                        <p>Guie o animal até sua comida através do labirinto</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">🎮</div>
+                        <h4>CONTROLES</h4>
+                        <p>Use as setas do teclado ou botões na tela</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">⭐</div>
+                        <h4>ESTRELAS</h4>
+                        <p>Ganhe estrelas usando poucos movimentos</p>
+                    </div>
+                    <div class="instruction-card">
+                        <div class="instruction-emoji">💡</div>
+                        <h4>DICAS</h4>
+                        <p>Use o botão Dica quando estiver perdido</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção de Animais -->
+        <section class="animals-section" id="animals">
+            <div class="animals-content">
+                <h3>🦁 ANIMAIS DO JOGO:</h3>
+                <div class="all-animals-grid" id="all-animals-grid">
+                    <!-- Todos os animais serão carregados por JavaScript -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="labirinto.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

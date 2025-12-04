@@ -9,21 +9,67 @@
 </head>
 <body>
     <header data-aos="fade-down" data-aos-duration="1500">
-      <div class="seila">
+   <!-- Substitua esta parte no header -->
+<div class="seila">
     <h1 class="title">ZOO<span>KID</span></h1>
-
+    
     <button class="hamburger-btn" id="hamburger-btn">
         <span class="bar"></span>
         <span class="bar"></span>
         <span class="bar"></span>
     </button>
+</div>
 
-    <div class="dropdown-menu" id="dropdown-menu">
-        <a href="">Curiosidades</a>
-        <a href="">Ranking</a>
-        <a href="">Sobre</a>
-        <a href="" class="btn-cnt">Contato</a> 
+<!-- Menu Dropdown atualizado -->
+<div class="dropdown-menu" id="dropdown-menu">
+    <button class="menu-close-btn" id="menu-close-btn">✕</button>
+    
+    <!-- Cabeçalho do usuário -->
+    <div class="menu-user">
+        <div class="user-avatar">
+            🐾
+        </div>
+        <div class="user-info">
+            <h4>Explorador ZooKid</h4>
+            <p>Nível: Detetive da Natureza</p>
+        </div>
     </div>
+    
+    <div class="menu-content">
+        <!-- Categoria: Navegação -->
+        <div class="menu-category">Navegar</div>
+        <a href="#todos">🎮 Todos os Jogos</a>
+        <a href="#memoria">🧠 Jogos de Memória</a>
+        <a href="#quiz">❓ Quiz e Desafios</a>
+        <a href="#educativo">📚 Educativos</a>
+        <a href="#classico">🎮 Clássicos</a>
+        
+        <!-- Categoria: Perfil -->
+        <div class="menu-category">Meu Perfil</div>
+        <a href="">⭐ Meus Favoritos</a>
+        <a href="">🏆 Meus Pontos</a>
+        <a href="">📊 Meu Progresso</a>
+        <a href="">🎨 Personalizar</a>
+        
+        <!-- Categoria: Outros -->
+        <div class="menu-category">Mais</div>
+        <a href="ranking.html">🏆 Ranking Global</a>
+        <a href="">📰 Novidades</a>
+        <a href="sobre.html">ℹ️ Sobre o ZooKid</a>
+        <a href="">👨‍👩‍👧‍👦 Para Pais</a>
+        <a href="configuracoes.html">⚙️ Configurações</a>
+        
+        <!-- Botões de ação -->
+        <div style="padding: 2rem; text-align: center;">
+            <a href="#" class="btn-cnt" style="display: block; margin-bottom: 1rem;">
+                🏆 Desafio do Dia
+            </a>
+            <a href="#" class="btn-cnt" style="background: #ff9966;">
+                🎉 Festa dos Animais
+            </a>
+        </div>
+    </div>
+</div>
     </div>
       <div class="search-container">
         <form action="#" method="get">
@@ -33,93 +79,131 @@
             </button>
         </form>
         </div>
-
-      <div class="btn">
-        <a href="" class="btn-cnt">Contato</a>
-      </div>
     </header>
     <div class="zoo">
     </div>
     <main>
+    <!-- BANNER DE DESTAQUE -->
+     <section class="banner">
+    <section data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="destaque-principal">
+        <h2 data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000">
+            BEM-VINDO AO <span class="zoo">ZOO<span>KID</span></span>!
+        </h2>
+        <p data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">
+            PREPARE-SE PARA ENTRAR NO MUNDO DOS SONS DOS ANIMAIS<br>
+            E VIRAR UM VERDADEIRO DETETIVE DA NATUREZA!
+        </p>
+        
+        <!-- NAVEGAÇÃO POR CATEGORIAS (como abas) -->
+        <div class="categorias-nav">
+            <a href="#todos" class="categoria-btn ativa">🏆 TODOS OS JOGOS</a>
+            <a href="#memoria" class="categoria-btn">🧠 MEMÓRIA</a>
+            <a href="#quiz" class="categoria-btn">❓ QUIZ</a>
+            <a href="#educativo" class="categoria-btn">📚 EDUCATIVO</a>
+            <a href="#classico" class="categoria-btn">🎮 CLÁSSICO</a>
+        </div>
+    </section>
 
-       <section data-aos="zoom-in" data-aos-duration="2000" data-aos-delay="300" class="banner"> 
-        <h2 data-aos-delay="700" data-aos="fade-down" data-aos-duration="2000" >BEM-VINDO AO <span class="zoo">ZOO<span>KID</span></span>!</h2> 
-           <p data-aos-delay="700" data-aos="fade-down" data-aos-duration="2500">PREPARE-SE PARA ENTRAR NO MUNDO DOS SONS DOS ANIMAIS <br>
-E VIRAR UM VERDADEIRO DETETIVE DA NATUREZA!</p>
 
-
-           <section class="games">
-            <div data-aos="fade-up" data-aos-delay="600" data-aos-duration="3000" class="game-card">
-                <div class="game-img-container">
-                    <a href="memory.html">
-                        <img class="games-pictures" src="memory.jpg" alt="Jogo da Memória Animal">
-                    </a>
-                    <div class="overlay">
-                        <h3 class="game-title-overlay">JOGO DA MEMÓRIA ANIMAL</h3>
-                         <p class="info">TESTE SUA MEMÓRIA COMBINANDO OS ANIMAIS COM SUAS IMAGENS!</p>
-                    </div>
+    <!-- GRID DE JOGOS (organizado como Crazy Games) -->
+    <section class="games">
+        <!-- Jogo 1: Memória -->
+        <div data-aos="fade-up" data-aos-delay="300" class="game-card">
+            <div class="game-img-container">
+                <a href="memory.html">
+                    <img class="games-pictures" src="memory.jpg" alt="Jogo da Memória Animal">
+                </a>
+                <div class="overlay">
+                    <h3 class="game-title-overlay">JOGO DA MEMÓRIA</h3>
+                    <p class="info">ENCONTRE OS PARES DE ANIMAIS!</p>
                 </div>
-               
             </div>
+            <div class="game-badges">
+                
+                <span class="badge tipo">🧠 Memória</span>
+                
+            </div>
+        </div>
+
+        <!-- Jogo 2: Quiz -->
+        <div data-aos="fade-up" data-aos-delay="400" class="game-card">
+            <div class="game-img-container">
+                <a href="quiz.html">
+                    <img class="games-pictures" src="quiz.jpg" alt="Quiz dos Sons">
+                </a>
+                <div class="overlay">
+                    <h3 class="game-title-overlay">QUIZ ANIMAIS</h3>
+                    <p class="info">ADIVINHE OS SONS!</p>
+                </div>
+            </div>
+            <div class="game-badges">
+                
+                <span class="badge tipo">❓ Quiz</span>
+            </div>
+        </div>
+
+        <!-- Jogo 3: Contagem -->
+        <div data-aos="fade-up" data-aos-delay="500" class="game-card">
+            <div class="game-img-container">
+                <a href="count.html">
+                    <img class="games-pictures" src="count.png" alt="Jogo de Contagem">
+                </a>
+                <div class="overlay">
+                    <h3 class="game-title-overlay">CONTAGEM ANIMAL</h3>
+                    <p class="info">CONTE OS BICHINHOS!</p>
+                </div>
+            </div>
+            <div class="game-badges">
+                
+                <span class="badge tipo">📚 Educativo</span>
+              
+            </div>
+        </div>
+
+        <!-- Jogo 4: Snake -->
+        <div data-aos="fade-up" data-aos-delay="600" class="game-card">
+            <div class="game-img-container">
+                <a href="snake.html">
+                    <img style="z-index: 999;" class="games-pictures" src="capa snake.png" alt="Jogo da Cobrinha">
+                </a>
+                <div class="overlay">
+                    <h3 class="game-title-overlay">SNAKE</h3>
+                    <p class="info">COMA AS MAÇÃS!</p>
+                </div>
+            </div>
+            <div class="game-badges">
+               
+                <span class="badge tipo">🎮 Clássico</span>
              
-     <hr>
+            </div>
+        </div>
 
-            <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
-                 <div class="game-img-container">
-                    <a href="quiz.html">
-                        <img class="games-pictures" src="quiz.jpg" alt="Quiz dos Sons">
-                    </a>
-                    <div class="overlay">
-                        <h3 class="game-title-overlay">QUIZ ANIMAIS</h3>
-                        <p class="info">DESAFIE SEUS CONHECIMENTOS SOBRE OS SONS DOS ANIMAIS EM UM QUIZ DIVERTIDO!</p>
-                    </div>
-                </div>
-                <div class="info">
-                    
+        <div data-aos="fade-up" data-aos-delay="600" class="game-card">
+            <div class="game-img-container">
+                <a href="labirinto.html">
+                    <img style="z-index: 999;" class="games-pictures" src="labirinto.png" alt="Jogo da Cobrinha">
+                </a>
+                <div class="overlay">
+                    <h3 class="game-title-overlay">LABIRINTO</h3>
+                    <p class="info">AJUDE O ANIMAL CHEGAR AO SEU OBJETIVO</p>
                 </div>
             </div>
-
-            <hr>
-
-            <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
-                <div class="game-img-container">
-                    <a href="count.html">
-                        <img class="games-pictures" src="count.png" alt="Jogo de Contagem">
-                    </a>
-                    <div class="overlay">
-                        <h3 class="game-title-overlay">CONTAGEM ANIMAL</h3>
-                         <p class="info">PRATIQUE MATEMÁTICA CONTANDO QUANTOS ANIMAIS DE CADA ESPÉCIE VOCÊ ENCONTRA!</p>
-                    </div>
-                </div>
+            <div class="game-badges">
                 
-
+                <span class="badge tipo">🎮 Clássico</span>
+             
             </div>
-            </div>
-
-            <hr>
-
-
-            <div data-aos="fade-up" data-aos-duration="3000" data-aos-delay="600" class="game-card">
-                 <div class="game-img-container">
-                    <a href="snake.html">
-                        <img style="z-index: 999;" class="games-pictures" src="capa snake.png" alt="Jogo da Cobrinha">
-                    </a>
-                    <div class="overlay">
-                        <h3 class="game-title-overlay">SNAKE</h3>
-                        <p class="info">DIVIRTA-SE COM O CLÁSSICO JOGO DA COBRINHA (SNAKE) E COLETE TODAS AS MAÇÃS!</p>
-                    </div>
-                </div>
-               
-                
-            </div>
-            </div>
+        </div>
+    </section>
 
 
-
-</section>
-</section>
-
-    </main>
+    
+    <!-- Botão para ver todos (futuramente) -->
+    <div style="text-align: center; margin-top: 2rem;">
+        <a href="#" class="ver-todos">VER TODOS OS JOGOS ➜</a>
+    </div>
+    </section>
+</main>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>

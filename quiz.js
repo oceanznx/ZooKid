@@ -311,3 +311,36 @@ function initGame() {
 
 // Inicia o jogo quando a página carrega
 document.addEventListener('DOMContentLoaded', initGame);
+
+// No final do endGame() de cada jogo, adicione:
+function endGame() {
+    // ... código existente ...
+    
+    // Após mostrar a pontuação final:
+    setTimeout(() => {
+        const save = confirm(`🏆 Fim do jogo! Pontuação: ${score}\nDeseja salvar sua pontuação no ranking?`);
+        if (save) {
+            const playerName = prompt('Digite seu nome:') || 'Jogador';
+            // Chama a função do ranking.js
+            if (typeof saveScore === 'function') {
+                saveScore('Nome do Jogo Aqui', playerName, score);
+                alert('Pontuação salva! Veja o ranking na página principal.');
+            }
+        }
+    }, 1000);
+}
+
+// Em qualquer jogo, você pode acessar:
+if (window.ZooKidConfig) {
+    const config = ZooKidConfig.getConfig();
+    
+    // Verificar se som está ativo
+    if (config.audio.enabled) {
+        // Tocar som
+    }
+    
+    // Verificar dificuldade
+    if (config.game.difficulty === 'hard') {
+        // Aumentar dificuldade
+    }
+}

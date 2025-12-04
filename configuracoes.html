@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Configurações - ZooKid</title>
+    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="configuracoes.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+</head>
+<body>
+    <header data-aos="fade-down" data-aos-duration="1500">
+        <div class="seila">
+            <h1 class="title">ZOO<span>KID</span></h1>
+            <button class="hamburger-btn" id="hamburger-btn">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+        
+        <div class="search-container">
+            <form action="#" method="get">
+                <input type="text" placeholder="BUSCAR JOGOS..." name="search" class="search-input">
+                <button type="submit" class="search-button">&#128269;</button>
+            </form>
+        </div>
+    </header>
+
+    <!-- Menu Dropdown -->
+    <div class="dropdown-menu" id="dropdown-menu">
+        <button class="menu-close-btn" id="menu-close-btn">✕</button>
+        <div class="menu-content">
+            <div class="menu-user">
+                <div class="user-avatar" id="user-avatar">🦁</div>
+                <div class="user-info">
+                    <h4 id="user-name">JOGADOR</h4>
+                    <p>NÍVEL: EXPLORADOR</p>
+                </div>
+            </div>
+            
+            <div class="menu-category">NAVEGAÇÃO</div>
+            <a href="index.html">🏠 INÍCIO</a>
+            <a href="ranking.html">🏆 RANKING</a>
+            <a href="configuracoes.html" class="active">⚙️ CONFIGURAÇÕES</a>
+            <a href="sobre.html">ℹ️ SOBRE</a>
+            
+            <div class="menu-category">JOGOS</div>
+            <a href="memory.html">🧠 MEMÓRIA ANIMAL</a>
+            <a href="quiz.html">🔊 QUIZ DOS SONS</a>
+            <a href="count.html">🧮 CONTAGEM</a>
+            <a href="snake.html">🐍 COBRINHA</a>
+            <a href="labirinto.html">🦁 LABIRINTO</a>
+            
+            <div style="padding: 2rem; text-align: center;">
+                <a href="#" class="btn-cnt" style="display: block; margin-bottom: 1rem;">
+                    🏆 DESAFIO DO DIA
+                </a>
+                <a href="#" class="btn-cnt" style="background: #ff9966;">
+                    🎉 FESTA DOS ANIMAIS
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section class="banner configuracoes-banner">
+            <h2 data-aos="fade-down" data-aos-duration="2000">⚙️ CONFIGURAÇÕES DO ZOOKID</h2>
+            <p data-aos="fade-down" data-aos-duration="2500">PERSONALIZE SUA EXPERIÊNCIA DE JOGO!</p>
+            
+            <div class="settings-container">
+                
+                <!-- Card de Áudio -->
+                <div class="settings-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="settings-header">
+                        <span class="settings-icon">🔊</span>
+                        <h3>CONFIGURAÇÕES DE ÁUDIO</h3>
+                    </div>
+                    <div class="settings-options">
+                        <div class="setting-option">
+                            <span class="option-label">SOM DOS JOGOS</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="sound-toggle" checked>
+                                <label for="sound-toggle" class="toggle-slider"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">VOLUME DOS EFEITOS</span>
+                            <div class="slider-container">
+                                <input type="range" id="effects-volume" min="0" max="100" value="80" class="volume-slider">
+                                <span id="effects-value" class="volume-value">80%</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">VOLUME DA MÚSICA</span>
+                            <div class="slider-container">
+                                <input type="range" id="music-volume" min="0" max="100" value="60" class="volume-slider">
+                                <span id="music-value" class="volume-value">60%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card Visual -->
+                <div class="settings-card" data-aos="fade-left" data-aos-delay="300">
+                    <div class="settings-header">
+                        <span class="settings-icon">🎨</span>
+                        <h3>CONFIGURAÇÕES VISUAIS</h3>
+                    </div>
+                    <div class="settings-options">
+                        <div class="setting-option">
+                            <span class="option-label">MODO ESCURO</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="darkmode-toggle">
+                                <label for="darkmode-toggle" class="toggle-slider"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">TAMANHO DA FONTE</span>
+                            <div class="size-buttons">
+                                <button class="size-btn active" data-size="small">A</button>
+                                <button class="size-btn" data-size="medium">A</button>
+                                <button class="size-btn" data-size="large">A</button>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">ANIMAÇÕES</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="animations-toggle" checked>
+                                <label for="animations-toggle" class="toggle-slider"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card de Jogo -->
+                <div class="settings-card" data-aos="fade-right" data-aos-delay="400">
+                    <div class="settings-header">
+                        <span class="settings-icon">🎮</span>
+                        <h3>CONFIGURAÇÕES DE JOGO</h3>
+                    </div>
+                    <div class="settings-options">
+                        <div class="setting-option">
+                            <span class="option-label">DIFICULDADE</span>
+                            <select id="difficulty-select" class="game-select">
+                                <option value="easy">FÁCIL 🟢</option>
+                                <option value="medium" selected>MÉDIO 🟡</option>
+                                <option value="hard">DIFÍCIL 🔴</option>
+                            </select>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">CONTROLES VIBRAÇÃO</span>
+                            <div class="toggle-switch">
+                                <input type="checkbox" id="vibration-toggle" checked>
+                                <label for="vibration-toggle" class="toggle-slider"></label>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">TEMPO POR JOGADA</span>
+                            <select id="time-select" class="game-select">
+                                <option value="unlimited">SEM LIMITE ⏳</option>
+                                <option value="60">1 MINUTO ⏱️</option>
+                                <option value="120">2 MINUTOS ⏱️</option>
+                                <option value="180">3 MINUTOS ⏱️</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Card de Conta -->
+                <div class="settings-card" data-aos="fade-left" data-aos-delay="500">
+                    <div class="settings-header">
+                        <span class="settings-icon">👤</span>
+                        <h3>CONTA DO JOGADOR</h3>
+                    </div>
+                    <div class="settings-options">
+                        <div class="setting-option">
+                            <span class="option-label">NOME DO JOGADOR</span>
+                            <input type="text" id="player-name" class="text-input" placeholder="DIGITE SEU NOME" value="JOGADOR">
+                        </div>
+                        
+                        <div class="setting-option">
+                            <span class="option-label">AVATAR</span>
+                            <div class="avatar-selector">
+                                <div class="avatar-option active" data-avatar="🦁">
+                                    <span>🦁</span>
+                                </div>
+                                <div class="avatar-option" data-avatar="🐘">
+                                    <span>🐘</span>
+                                </div>
+                                <div class="avatar-option" data-avatar="🦒">
+                                    <span>🦒</span>
+                                </div>
+                                <div class="avatar-option" data-avatar="🐒">
+                                    <span>🐒</span>
+                                </div>
+                                <div class="avatar-option" data-avatar="🐼">
+                                    <span>🐼</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-option">
+                            <button id="save-profile" class="save-btn">💾 SALVAR PERFIL</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botões de Ação -->
+                <div class="action-buttons" data-aos="zoom-in" data-aos-delay="600">
+                    <button id="reset-settings" class="action-btn reset-btn">🔄 RESTAURAR PADRÕES</button>
+                    <button id="save-all" class="action-btn save-all-btn">💾 SALVAR TUDO</button>
+                    <button id="clear-data" class="action-btn clear-btn">🗑️ LIMPAR DADOS</button>
+                    <button onclick="window.location.href='index.html'" class="action-btn back-btn">🏠 VOLTAR AO INÍCIO</button>
+                </div>
+                
+                <!-- Status -->
+                <div class="status-message" id="status-message">
+                    <span class="status-icon">💾</span>
+                    <span class="status-text">CONFIGURAÇÕES SALVAS!</span>
+                </div>
+                
+            </div>
+        </section>
+    </main>
+
+    <script src="menu.js"></script>
+    <script src="config.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+</body>
+</html>

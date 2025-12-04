@@ -1,0 +1,853 @@
+/* labirinto.css - Estilos do Labirinto do Zoológico */
+
+/* Container Principal */
+.labirinto-banner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(46, 46, 46, 0.95);
+    border-radius: 20px;
+    border: 4px solid #f3cb2b;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== PAINEL DE INFORMAÇÕES ===== */
+.info-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, rgba(243, 203, 43, 0.1), rgba(255, 153, 102, 0.1));
+    padding: 1.5rem 2rem;
+    border-radius: 15px;
+    border: 2px solid #f3cb2b;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.score-board {
+    display: flex;
+    gap: 1.5rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    flex-wrap: wrap;
+}
+
+.score-board div {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 0.8rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #f3cb2b;
+    color: #f3cb2b;
+    min-width: 140px;
+    text-align: center;
+}
+
+.score-board div span {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 0.5rem;
+}
+
+.animal-info {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    border: 2px solid #28a745;
+}
+
+.current-animal, .target-food {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+.animal-emoji-display, .food-emoji-display {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 3px solid #f3cb2b;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: float 3s ease-in-out infinite;
+}
+
+.current-animal span, .target-food span {
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.arrow {
+    font-size: 2.5rem;
+    color: #f3cb2b;
+    margin: 0 0.5rem;
+    animation: bounce 1s infinite;
+}
+
+/* ===== ÁREA DO LABIRINTO ===== */
+.game-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}
+
+.maze-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    width: 100%;
+}
+
+.maze {
+    display: grid;
+    gap: 2px;
+    background: #1a1a1a;
+    border: 4px solid #f3cb2b;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(243, 203, 43, 0.4);
+    max-width: 100%;
+}
+
+.cell {
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    position: relative;
+    font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+    .cell {
+        width: 35px;
+        height: 35px;
+        font-size: 1.4rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: 28px;
+        height: 28px;
+        font-size: 1.1rem;
+    }
+}
+
+/* ===== TIPOS DE CÉLULAS ===== */
+.cell.path {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    border-radius: 3px;
+}
+
+.cell.wall {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 8px,
+        rgba(0,0,0,0.1) 8px,
+        rgba(0,0,0,0.1) 16px
+    );
+    border: 1px solid #495057;
+}
+
+.cell.start {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    position: relative;
+    border-radius: 5px;
+}
+
+.cell.end {
+    background: linear-gradient(135deg, #dc3545, #fd7e14);
+    position: relative;
+    border-radius: 5px;
+}
+
+.cell.visited {
+    background: linear-gradient(135deg, #ffc107, #ffd60a);
+    animation: visitedPulse 2s infinite;
+    border-radius: 5px;
+}
+
+.cell.current {
+    background: linear-gradient(135deg, #007bff, #0dcaf0);
+    transform: scale(1.15);
+    z-index: 10;
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.9);
+    border-radius: 8px;
+    border: 2px solid white;
+}
+
+.cell.current .animal-emoji {
+    font-size: 2rem;
+    animation: bounce 0.6s infinite alternate, float 4s ease-in-out infinite;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.cell.end .food-emoji {
+    font-size: 2rem;
+    animation: pulse 1.5s infinite, rotate 3s linear infinite;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+.cell .wall-emoji {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    filter: brightness(0.8);
+}
+
+/* ===== ANIMAÇÕES ===== */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-5px); }
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(1.1); }
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes visitedPulse {
+    0%, 100% { opacity: 0.8; }
+    50% { opacity: 1; }
+}
+
+@keyframes hintGlow {
+    0%, 100% { box-shadow: 0 0 10px #17a2b8; }
+    50% { box-shadow: 0 0 20px #17a2b8; }
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* ===== CONTROLES MÓVEIS ===== */
+.mobile-controls {
+    display: none;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 2rem;
+    width: 100%;
+    max-width: 300px;
+}
+
+.horizontal-controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 15px;
+    justify-items: center;
+}
+
+.control-btn {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(243, 203, 43, 0.3), rgba(255, 153, 102, 0.3));
+    border: 3px solid #f3cb2b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.control-btn.center {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-color: #28a745;
+}
+
+.control-btn:active {
+    background: linear-gradient(135deg, rgba(243, 203, 43, 0.7), rgba(255, 153, 102, 0.7));
+    transform: scale(0.95);
+}
+
+.control-btn.center:active {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+.control-emoji {
+    font-size: 2rem;
+}
+
+.control-text {
+    font-size: 0.8rem;
+    color: white;
+    font-weight: bold;
+}
+
+/* ===== INSTRUÇÕES ===== */
+.instructions {
+    text-align: center;
+    color: white;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #f3cb2b;
+    max-width: 800px;
+    width: 100%;
+}
+
+.instructions h3 {
+    color: #f3cb2b;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.instructions p {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.controls-hint {
+    background: rgba(243, 203, 43, 0.2);
+    padding: 0.8rem;
+    border-radius: 10px;
+    margin-top: 1rem;
+    border: 1px solid #f3cb2b;
+    animation: pulse 2s infinite;
+}
+
+/* ===== CONTROLES DO JOGO ===== */
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 2px solid #f3cb2b;
+}
+
+.game-btn {
+    background: linear-gradient(135deg, #f3cb2b, #ff9966);
+    color: #000;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 30px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    min-width: 160px;
+    justify-content: center;
+}
+
+.game-btn:hover {
+    background: linear-gradient(135deg, #ffd700, #ff9966);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(243, 203, 43, 0.4);
+}
+
+#next-level-btn {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+}
+
+#next-level-btn:hover {
+    background: linear-gradient(135deg, #218838, #1e7e34);
+}
+
+#hint-btn {
+    background: linear-gradient(135deg, #17a2b8, #0dcaf0);
+    color: white;
+}
+
+#hint-btn:hover {
+    background: linear-gradient(135deg, #138496, #0aa2c0);
+}
+
+#sound-btn {
+    background: linear-gradient(135deg, #6c757d, #495057);
+    color: white;
+}
+
+#sound-btn:hover {
+    background: linear-gradient(135deg, #5a6268, #3d4349);
+}
+
+.btn-emoji {
+    font-size: 1.3rem;
+}
+
+.btn-text {
+    font-size: 1rem;
+}
+
+/* ===== MENSAGENS DO JOGO ===== */
+.game-message {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #f3cb2b;
+    min-height: 60px;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    border: 2px solid #f3cb2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    animation: pulse 3s infinite;
+}
+
+.message-emoji {
+    font-size: 2rem;
+    animation: bounce 1s infinite alternate;
+}
+
+.message-text {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* ===== NÍVEIS DISPONÍVEIS ===== */
+.levels-container {
+    background: linear-gradient(135deg, rgba(243, 203, 43, 0.1), rgba(255, 153, 102, 0.1));
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid #f3cb2b;
+}
+
+.levels-container h3 {
+    color: #f3cb2b;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.levels-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+}
+
+.level-btn {
+    background: rgba(243, 203, 43, 0.2);
+    border: 2px solid #f3cb2b;
+    border-radius: 12px;
+    padding: 1.2rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.8rem;
+    min-height: 120px;
+    justify-content: center;
+}
+
+.level-btn:hover {
+    background: rgba(243, 203, 43, 0.4);
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(243, 203, 43, 0.3);
+}
+
+.level-btn.completed {
+    background: rgba(40, 167, 69, 0.3);
+    border-color: #28a745;
+}
+
+.level-btn.current {
+    background: rgba(0, 123, 255, 0.3);
+    border-color: #007bff;
+    animation: pulse 1.5s infinite;
+}
+
+.level-stars {
+    display: flex;
+    gap: 3px;
+}
+
+.star {
+    font-size: 1rem;
+    color: #ccc;
+}
+
+.star.filled {
+    color: #ffd700;
+    animation: bounce 1s infinite;
+}
+
+/* ===== SELETOR DE ANIMAL ===== */
+.animal-selector {
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 3px solid #f3cb2b;
+    margin-top: 2rem;
+}
+
+.animal-selector h3 {
+    color: #f3cb2b;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.animals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.animal-select-btn {
+    background: rgba(243, 203, 43, 0.2);
+    border: 2px solid #f3cb2b;
+    border-radius: 10px;
+    padding: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.animal-select-btn:hover {
+    background: rgba(243, 203, 43, 0.4);
+    transform: scale(1.05);
+}
+
+.close-selector-btn {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0 auto;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.close-selector-btn:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* ===== SEÇÕES ADICIONAIS ===== */
+.instructions-detailed {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid #28a745;
+    margin-top: 2rem;
+}
+
+.instructions-content h3 {
+    color: #28a745;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.instructions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+}
+
+.instruction-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid #f3cb2b;
+    text-align: center;
+}
+
+.instruction-emoji {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.instruction-card h4 {
+    color: #f3cb2b;
+    margin-bottom: 0.5rem;
+}
+
+.instruction-card p {
+    color: white;
+    font-size: 0.9rem;
+}
+
+.animals-section {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid #17a2b8;
+    margin-top: 2rem;
+}
+
+.animals-content h3 {
+    color: #17a2b8;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.all-animals-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.5rem;
+}
+
+.animal-card {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1rem;
+    border-radius: 12px;
+    border: 1px solid #f3cb2b;
+    text-align: center;
+}
+
+.animal-card-emoji {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    animation: float 3s ease-in-out infinite;
+}
+
+.animal-card h4 {
+    color: #f3cb2b;
+    margin-bottom: 0.3rem;
+}
+
+.animal-card p {
+    color: white;
+    font-size: 0.9rem;
+    margin: 0.2rem 0;
+}
+
+/* ===== EFEITO DE VITÓRIA ===== */
+.victory-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    animation: fadeIn 0.5s ease;
+}
+
+.victory-content {
+    background: linear-gradient(135deg, #f3cb2b, #ff9966);
+    padding: 3rem;
+    border-radius: 25px;
+    text-align: center;
+    animation: celebrate 0.5s ease;
+    border: 5px solid white;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 0 50px rgba(243, 203, 43, 0.8);
+}
+
+.victory-content h2 {
+    color: white;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.victory-animal {
+    font-size: 5rem;
+    margin: 1.5rem 0;
+    animation: bounce 1s infinite, float 3s ease-in-out infinite;
+}
+
+.victory-stats {
+    color: white;
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1.5rem;
+    border-radius: 15px;
+}
+
+.victory-stats div {
+    margin: 0.8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes celebrate {
+    0% { transform: scale(0.8); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+@media (max-width: 768px) {
+    .info-panel {
+        flex-direction: column;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .score-board {
+        flex-direction: column;
+        gap: 0.8rem;
+        width: 100%;
+    }
+    
+    .score-board div {
+        min-width: 100%;
+    }
+    
+    .animal-info {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .mobile-controls {
+        display: grid;
+    }
+    
+    .game-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .game-btn {
+        width: 100%;
+        max-width: 300px;
+        justify-content: center;
+    }
+    
+    .levels-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .instruction-card {
+        min-height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .cell {
+        width: 22px;
+        height: 22px;
+        font-size: 0.9rem;
+    }
+    
+    .control-btn {
+        width: 65px;
+        height: 65px;
+    }
+    
+    .control-emoji {
+        font-size: 1.5rem;
+    }
+    
+    .control-text {
+        font-size: 0.7rem;
+    }
+    
+    .levels-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .animals-grid, .all-animals-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .animal-emoji-display, .food-emoji-display {
+        width: 50px;
+        height: 50px;
+        font-size: 1.8rem;
+    }
+    
+    .arrow {
+        font-size: 1.8rem;
+    }
+    
+    .victory-content {
+        padding: 1.5rem;
+    }
+    
+    .victory-content h2 {
+        font-size: 1.8rem;
+    }
+    
+    .victory-animal {
+        font-size: 3rem;
+    }
+    
+    .victory-stats {
+        font-size: 1rem;
+        padding: 1rem;
+    }
+}
+
+/* ===== EMOJI FLUTUANTE PARA SONS ===== */
+.floating-emoji {
+    position: fixed;
+    font-size: 2rem;
+    z-index: 10000;
+    pointer-events: none;
+    animation: floatUp 1s ease-out forwards;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.3));
+}
+
+/* ===== EMOJIS PARA PAREDES POR NÍVEL ===== */
+.cell.wall[data-biome="savana"] { background: linear-gradient(135deg, #A0522D, #8B4513); }
+.cell.wall[data-biome="savana"] .wall-emoji { color: #DEB887}

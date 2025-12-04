@@ -130,3 +130,112 @@
         font-size: 1.2rem;
     }
 }
+
+/* Adicione ao final do snake.css */
+
+/* Animação para a comida sendo comida */
+.food-cell.eaten {
+    animation: eat 0.3s ease;
+}
+
+@keyframes eat {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.3); opacity: 0.7; }
+    100% { transform: scale(0); opacity: 0; }
+}
+
+/* Efeito de pulso para a cabeça da cobra */
+.snake-head.moving {
+    animation: pulse 0.5s infinite alternate;
+}
+
+@keyframes pulse {
+    from { box-shadow: 0 0 5px rgba(0, 124, 248, 0.5); }
+    to { box-shadow: 0 0 15px rgba(0, 124, 248, 0.8); }
+}
+
+/* Botão de reinício */
+.restart-btn {
+    background: #f3cb2b !important;
+    color: #000 !important;
+    border: none;
+    padding: 1rem 2rem !important;
+    border-radius: 30px !important;
+    font-size: 1.2rem !important;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease !important;
+}
+
+.restart-btn:hover {
+    background: #ffd700 !important;
+    transform: scale(1.05) !important;
+}
+
+/* Efeito de shake para game over */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* Controles para mobile */
+.mobile-controls {
+    display: none;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 1rem;
+    max-width: 200px;
+}
+
+.mobile-btn {
+    background: rgba(243, 203, 43, 0.3);
+    border: 2px solid #f3cb2b;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mobile-btn:active {
+    background: rgba(243, 203, 43, 0.7);
+    transform: scale(0.95);
+}
+
+@media (max-width: 768px) {
+    .mobile-controls {
+        display: grid;
+    }
+    
+    .mobile-btn.up {
+        grid-column: 2;
+        grid-row: 1;
+    }
+    
+    .mobile-btn.left {
+        grid-column: 1;
+        grid-row: 2;
+    }
+    
+    .mobile-btn.right {
+        grid-column: 3;
+        grid-row: 2;
+    }
+    
+    .mobile-btn.down {
+        grid-column: 2;
+        grid-row: 3;
+    }
+}
